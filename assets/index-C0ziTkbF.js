@@ -42,7 +42,7 @@ Please change the parent <Route path="${e}"> to <Route path="${e===`/`?`*`:`${e}
             transform: translateY(0);
           }
         }
-      `})]})}function Cr(){let[e,t]=(0,x.useState)(null),n=[`HTML`,`JavaScript`,`C`,`C++`,`PHP`,`MySQL`],r={HTML:`<!DOCTYPE html>
+      `})]})}function Cr(){let[e,t]=(0,x.useState)(null),n=[`HTML`,`CSS`,`JavaScript`,`TypeScript`,`React`,`C`,`C++`,`PHP`,`MySQL`,`Tailwind CSS`],r={HTML:`<!DOCTYPE html>
 <html>
 <head>
     <title>My Page</title>
@@ -50,7 +50,16 @@ Please change the parent <Route path="${e}"> to <Route path="${e===`/`?`*`:`${e}
 <body>
     <h1>Hello, my name is Yusuf</h1>
 </body>
-</html>`,JavaScript:`// JavaScript
+</html>`,CSS:`/* CSS */
+.greeting {
+    color: #3b82f6;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.greeting::after {
+    content: "Hello, my name is Yusuf";
+}`,JavaScript:`// JavaScript
 console.log("Hello, my name is Yusuf");
 
 // Or in a function
@@ -58,10 +67,40 @@ function greet() {
     return "Hello, my name is Yusuf";
 }
 
-// Or using modern syntax
+// Or using arrow function
 const greeting = () => {
     console.log("Hello, my name is Yusuf");
-};`,C:`#include <stdio.h>
+};`,TypeScript:`// TypeScript
+const greeting: string = "Hello, my name is Yusuf";
+console.log(greeting);
+
+// With interface
+interface Person {
+    name: string;
+    greet(): string;
+}
+
+const yusuf: Person = {
+    name: "Yusuf",
+    greet() {
+        return \`Hello, my name is \${this.name}\`;
+    }
+};
+
+console.log(yusuf.greet());`,React:`// React Component
+import React from 'react';
+
+function Greeting() {
+    const name = "Yusuf";
+    
+    return (
+        <div className="greeting">
+            <h1>Hello, my name is {name}</h1>
+        </div>
+    );
+}
+
+export default Greeting;`,C:`#include <stdio.h>
 
 int main() {
     printf("Hello, my name is Yusuf\\n");
@@ -73,16 +112,21 @@ int main() {
     cout << "Hello, my name is Yusuf" << endl;
     return 0;
 }`,PHP:`<?php
-// PHP
 echo "Hello, my name is Yusuf";
 
-// Or with a variable
+// With a variable
 $name = "Yusuf";
 echo "Hello, my name is " . $name;
+
+// In a function
+function greet($name) {
+    return "Hello, my name is " . $name;
+}
+echo greet("Yusuf");
 ?>`,MySQL:`-- MySQL
 SELECT 'Hello, my name is Yusuf' AS greeting;
 
--- Or create a procedure
+-- Create a procedure
 DELIMITER //
 CREATE PROCEDURE SayHello()
 BEGIN
@@ -91,13 +135,18 @@ END //
 DELIMITER ;
 
 -- Call the procedure
-CALL SayHello();`},i=[{name:`Swimming`,icon:pr,description:`Staying active and refreshed`},{name:`Skating`,icon:pr,description:`Balance and freedom on wheels`}];return(0,j.jsxs)(`section`,{className:`min-h-screen py-16 px-4 sm:px-6 lg:px-8`,children:[(0,j.jsxs)(`div`,{className:`max-w-7xl mx-auto`,children:[(0,j.jsx)(`h2`,{className:`text-4xl sm:text-5xl font-bold text-center mb-4 
+CALL SayHello();`,"Tailwind CSS":`<!-- Tailwind CSS -->
+<div class="min-h-screen flex items-center justify-center">
+    <h1 class="text-4xl font-bold text-blue-500">
+        Hello, my name is Yusuf
+    </h1>
+</div>`},i=[{name:`Swimming`,icon:pr,description:`Staying active and refreshed`},{name:`Skating`,icon:pr,description:`Balance and freedom on wheels`}];return(0,j.jsxs)(`section`,{className:`min-h-screen py-16 px-4 sm:px-6 lg:px-8`,children:[(0,j.jsxs)(`div`,{className:`max-w-7xl mx-auto`,children:[(0,j.jsx)(`h2`,{className:`text-4xl sm:text-5xl font-bold text-center mb-4 
           bg-linear-to-r from-accent-blue to-accent-blue-dark bg-clip-text text-transparent`,children:`About Me`}),(0,j.jsxs)(`div`,{className:`grid md:grid-cols-2 gap-6 mt-12`,children:[(0,j.jsxs)(`div`,{className:`bg-bg-card border border-border rounded-2xl p-6 sm:p-8 
             hover:border-accent-blue hover:-translate-y-1 transition-all duration-300`,children:[(0,j.jsxs)(`div`,{className:`flex items-center gap-3 mb-4`,children:[(0,j.jsx)(fr,{className:`w-8 h-8 text-accent-blue`}),(0,j.jsx)(`h3`,{className:`text-2xl font-semibold`,children:`Education`})]}),(0,j.jsxs)(`div`,{children:[(0,j.jsx)(`h4`,{className:`text-xl font-medium text-text-primary mb-1`,children:`Computer Science`}),(0,j.jsx)(`p`,{className:`text-accent-blue font-medium mb-1`,children:`Murang'a University of Technology`}),(0,j.jsx)(`p`,{className:`text-text-secondary text-sm mb-1`,children:`3rd Year Student`}),(0,j.jsx)(`p`,{className:`text-text-secondary text-sm`,children:`Currently on Industrial Attachment`})]})]}),(0,j.jsxs)(`div`,{className:`bg-bg-card border border-border rounded-2xl p-6 sm:p-8 
             hover:border-accent-blue hover:-translate-y-1 transition-all duration-300`,children:[(0,j.jsxs)(`div`,{className:`flex items-center gap-3 mb-4`,children:[(0,j.jsx)(cr,{className:`w-8 h-8 text-accent-blue`}),(0,j.jsx)(`h3`,{className:`text-2xl font-semibold`,children:`Experience`})]}),(0,j.jsxs)(`div`,{children:[(0,j.jsx)(`h4`,{className:`text-xl font-medium text-text-primary mb-2`,children:`Web Design`}),(0,j.jsx)(`p`,{className:`text-text-secondary`,children:`Building responsive and user-friendly web interfaces with modern technologies`})]})]}),(0,j.jsxs)(`div`,{className:`bg-bg-card border border-border rounded-2xl p-6 sm:p-8 
-            hover:border-accent-blue hover:-translate-y-1 transition-all duration-300`,children:[(0,j.jsxs)(`div`,{className:`flex items-center gap-3 mb-4`,children:[(0,j.jsx)(ur,{className:`w-8 h-8 text-accent-blue`}),(0,j.jsx)(`h3`,{className:`text-2xl font-semibold`,children:`Skills`})]}),(0,j.jsx)(`div`,{className:`flex flex-wrap gap-2 mb-4`,children:n.map(n=>(0,j.jsx)(`button`,{onClick:()=>t(e===n?null:n),className:`px-4 py-2 text-sm font-medium rounded-full
+            hover:border-accent-blue hover:-translate-y-1 transition-all duration-300`,children:[(0,j.jsxs)(`div`,{className:`flex items-center gap-3 mb-4`,children:[(0,j.jsx)(ur,{className:`w-8 h-8 text-accent-blue`}),(0,j.jsx)(`h3`,{className:`text-2xl font-semibold`,children:`Skills`})]}),(0,j.jsx)(`p`,{className:`text-text-secondary text-sm mb-4`,children:`Click on a skill to see the syntax`}),(0,j.jsx)(`div`,{className:`flex flex-wrap gap-2 mb-4`,children:n.map(n=>(0,j.jsx)(`button`,{onClick:()=>t(e===n?null:n),className:`px-4 py-2 text-sm font-medium rounded-full
                     transition-all duration-300 cursor-pointer
-                    ${e===n?`bg-accent-blue text-white shadow-lg shadow-accent-blue/30 scale-105`:`bg-linear-to-r from-accent-blue to-accent-blue-dark text-white hover:scale-105 hover:shadow-lg hover:shadow-accent-blue/30`}`,children:n},n))}),e&&(0,j.jsxs)(`div`,{className:`mt-4 animate-[fadeIn_0.3s_ease]`,children:[(0,j.jsxs)(`div`,{className:`flex items-center justify-between mb-2`,children:[(0,j.jsxs)(`span`,{className:`text-sm font-medium text-accent-blue`,children:[e,` Syntax`]}),(0,j.jsx)(`button`,{onClick:()=>t(null),className:`text-text-secondary hover:text-text-primary transition-colors text-sm`,children:`✕ Close`})]}),(0,j.jsxs)(`div`,{className:`bg-bg-secondary border border-border rounded-xl overflow-hidden`,children:[(0,j.jsxs)(`div`,{className:`flex items-center gap-2 px-4 py-2 border-b border-border`,children:[(0,j.jsx)(`div`,{className:`w-3 h-3 rounded-full bg-red-500`}),(0,j.jsx)(`div`,{className:`w-3 h-3 rounded-full bg-yellow-500`}),(0,j.jsx)(`div`,{className:`w-3 h-3 rounded-full bg-green-500`}),(0,j.jsxs)(`span`,{className:`text-xs text-text-secondary ml-2`,children:[e.toLowerCase(),`.`,e===`C++`?`cpp`:e===`JavaScript`?`js`:e===`MySQL`?`sql`:e.toLowerCase()]})]}),(0,j.jsx)(`pre`,{className:`p-4 text-sm text-text-secondary overflow-x-auto`,children:(0,j.jsx)(`code`,{children:r[e]})})]})]})]}),(0,j.jsxs)(`div`,{className:`bg-bg-card border border-border rounded-2xl p-6 sm:p-8 
+                    ${e===n?`bg-accent-blue text-white shadow-lg shadow-accent-blue/30 scale-105`:`bg-linear-to-r from-accent-blue to-accent-blue-dark text-white hover:scale-105 hover:shadow-lg hover:shadow-accent-blue/30`}`,children:n},n))}),e&&(0,j.jsxs)(`div`,{className:`mt-4 animate-[fadeIn_0.3s_ease]`,children:[(0,j.jsxs)(`div`,{className:`flex items-center justify-between mb-2`,children:[(0,j.jsxs)(`span`,{className:`text-sm font-medium text-accent-blue`,children:[e,` Syntax`]}),(0,j.jsx)(`button`,{onClick:()=>t(null),className:`text-text-secondary hover:text-text-primary transition-colors text-sm`,children:`✕ Close`})]}),(0,j.jsxs)(`div`,{className:`bg-bg-secondary border border-border rounded-xl overflow-hidden`,children:[(0,j.jsxs)(`div`,{className:`flex items-center gap-2 px-4 py-2 border-b border-border`,children:[(0,j.jsx)(`div`,{className:`w-3 h-3 rounded-full bg-red-500`}),(0,j.jsx)(`div`,{className:`w-3 h-3 rounded-full bg-yellow-500`}),(0,j.jsx)(`div`,{className:`w-3 h-3 rounded-full bg-green-500`}),(0,j.jsx)(`span`,{className:`text-xs text-text-secondary ml-2`,children:e===`C++`?`example.cpp`:e===`JavaScript`?`example.js`:e===`TypeScript`?`example.ts`:e===`React`?`Greeting.jsx`:e===`Tailwind CSS`?`index.html`:e===`MySQL`?`example.sql`:e===`PHP`?`example.php`:e===`CSS`?`style.css`:`example.${e.toLowerCase()}`})]}),(0,j.jsx)(`pre`,{className:`p-4 text-sm text-text-secondary overflow-x-auto max-h-60 overflow-y-auto`,children:(0,j.jsx)(`code`,{children:r[e]})})]})]})]}),(0,j.jsxs)(`div`,{className:`bg-bg-card border border-border rounded-2xl p-6 sm:p-8 
             hover:border-accent-blue hover:-translate-y-1 transition-all duration-300`,children:[(0,j.jsxs)(`div`,{className:`flex items-center gap-3 mb-4`,children:[(0,j.jsx)(pr,{className:`w-8 h-8 text-accent-blue`}),(0,j.jsx)(`h3`,{className:`text-2xl font-semibold`,children:`Hobbies`})]}),(0,j.jsx)(`div`,{className:`space-y-3`,children:i.map(e=>(0,j.jsxs)(`div`,{className:`flex items-center gap-4 p-3 bg-bg-secondary rounded-xl 
                     hover:bg-linear-to-br hover:from-[#1a1a2e] hover:to-[#16213e] 
                     transition-all duration-300`,children:[(0,j.jsx)(e.icon,{className:`w-8 h-8 text-accent-blue`}),(0,j.jsxs)(`div`,{children:[(0,j.jsx)(`h4`,{className:`font-medium text-text-primary`,children:e.name}),(0,j.jsx)(`p`,{className:`text-sm text-text-secondary`,children:e.description})]})]},e.name))})]})]})]}),(0,j.jsx)(`style`,{children:`
