@@ -5,6 +5,17 @@
     <link rel="icon" type="image/svg+xml" href="/Yusuf-portfolio/avatar.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Yusuf - Portfolio</title>
+    <script>
+      // Handle GitHub Pages 404 redirect
+      (function() {
+        var params = new URLSearchParams(window.location.search);
+        var redirectPath = params.get('p');
+        if (redirectPath) {
+          // Clean the URL and let React Router handle it
+          window.history.replaceState(null, null, redirectPath);
+        }
+      })();
+    </script>
     <script type="module" crossorigin src="/Yusuf-portfolio/assets/index-C0ziTkbF.js"></script>
     <link rel="stylesheet" crossorigin href="/Yusuf-portfolio/assets/index-D1J5UsfP.css">
   </head>
