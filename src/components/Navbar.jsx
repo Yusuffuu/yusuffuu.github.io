@@ -19,7 +19,7 @@ function Navbar() {
           {/* Logo */}
           <Link to="/" className="text-2xl font-bold">
             <img 
-             src="/avatar.png" 
+             src="./avatar.png" 
              alt="Yusuf Logo" 
              className="w-8 h-8 rounded-full inline-block mr-2"
             />
