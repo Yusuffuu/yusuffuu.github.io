@@ -7,7 +7,7 @@ import Contact from './Pages/Contact'
 
 function App() {
   return (
-    <Router>
+    <Router basename="/Yusuf-portfolio">  {/* Add basename here */}
       <Layout>
         <Routes>
           <Route path="/" element={<Home />} />

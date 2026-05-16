@@ -57,7 +57,7 @@ function Home() {
         shadow-lg shadow-accent-blue/30 ring-2 ring-accent-blue ring-offset-4 
         ring-offset-transparent overflow-hidden">
         <img 
-          src="/yusuf.jpg" 
+          src="./yusuf.jpg" 
           alt="Yusuf" 
           className="w-full h-full object-cover"
         />

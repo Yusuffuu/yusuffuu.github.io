@@ -7,5 +7,5 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
-  base: '/', // Replace with your actual repo name
+  base: '/Yusuf-portfolio/', // Must match exactly: capital Y, hyphen, lowercase p
 })
