@@ -1,12 +1,22 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/yusuf-portfolio/avatar.png" />
+    <link rel="icon" type="image/svg+xml" href="/Yusuf-portfolio/avatar.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Yusuf's Portfolio</title>
-    <script type="module" crossorigin src="/yusuf-portfolio/assets/index-CeFj9Vdv.js"></script>
-    <link rel="stylesheet" crossorigin href="/yusuf-portfolio/assets/index-5aejX5CP.css">
+    <title>Yusuf - Portfolio</title>
+    <script>
+      // Handle GitHub Pages 404 redirect
+      (function() {
+        const redirect = sessionStorage.redirect;
+        delete sessionStorage.redirect;
+        if (redirect && redirect !== location.href) {
+          history.replaceState(null, null, redirect);
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="/Yusuf-portfolio/assets/index-BaSHuqks.js"></script>
+    <link rel="stylesheet" crossorigin href="/Yusuf-portfolio/assets/index-D9XW49OK.css">
   </head>
   <body>
     <div id="root"></div>
