@@ -2,14 +2,18 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Redirecting...</title>
+  <title>Yusuf - Portfolio</title>
   <script>
-    // Redirect to index.html keeping the path for React Router
-    sessionStorage.redirect = location.href;
+    // Get the current URL path
+    var path = window.location.pathname;
+    // Remove the repo name from the path
+    var repoName = '/Yusuf-portfolio';
+    var redirectPath = path.replace(repoName, '');
+    // Redirect to index.html with the path as a query parameter
+    window.location.href = repoName + '/?p=' + encodeURIComponent(redirectPath);
   </script>
-  <meta http-equiv="refresh" content="0;URL='/'">
 </head>
 <body>
-  Redirecting...
+  <p>Redirecting...</p>
 </body>
 </html>

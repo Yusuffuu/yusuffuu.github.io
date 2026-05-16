@@ -8,10 +8,11 @@
     <script>
       // Handle GitHub Pages 404 redirect
       (function() {
-        const redirect = sessionStorage.redirect;
-        delete sessionStorage.redirect;
-        if (redirect && redirect !== location.href) {
-          history.replaceState(null, null, redirect);
+        var params = new URLSearchParams(window.location.search);
+        var redirectPath = params.get('p');
+        if (redirectPath) {
+          // Clean the URL and let React Router handle it
+          window.history.replaceState(null, null, redirectPath);
         }
       })();
     </script>
