@@ -7,5 +7,6 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
-  base: '/Yusuf-portfolio/', // Must match exactly: capital Y, hyphen, lowercase p
+  // Only use base for production builds
+  base: process.env.NODE_ENV === 'production' ? '/Yusuf-portfolio/' : '/',
 })

@@ -4,8 +4,8 @@ function About() {
   const skills = ['HTML', 'JavaScript', 'C', 'C++', 'PHP', 'MySQL']
   
   const hobbies = [
-    { name: 'Swimming', icon: Waves, description: 'Staying active and refreshed' },
-    { name: 'Skating', icon: Skateboard, description: 'Balance and freedom on wheels' }
+    { name: 'Swimming', icon: Heart, description: 'Staying active and refreshed' },
+    { name: 'Skating', icon: Heart, description: 'Balance and freedom on wheels' }
   ]
 
   return (

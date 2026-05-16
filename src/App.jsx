@@ -4,11 +4,11 @@ import Home from './Pages/Home'
 import About from './Pages/About'
 import Projects from './Pages/Projects'
 import Contact from './Pages/Contact'
-import NotFound from './components/NotFound'
+import NotFound from './Pages/NotFound'
 
 function App() {
   return (
-    <Router basename="/Yusuf-portfolio">  {/* Add basename here */}
+    <Router basename={import.meta.env.PROD ? '/Yusuf-portfolio' : '/'}>
       <Layout>
         <Routes>
           <Route path="/" element={<Home />} />

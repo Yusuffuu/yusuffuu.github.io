@@ -1,0 +1,662 @@
+========== src/components/Footer.jsx ==========
+import { Link } from 'react-router-dom'
+import { ExternalLink, Mail } from 'lucide-react'
+
+function Footer() {
+  const currentYear = new Date().getFullYear()
+
+  return (
+    <footer className="bg-bg-secondary border-t border-border">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="grid md:grid-cols-3 gap-8 mb-8">
+          {/* Brand */}
+          <div>
+            <Link to="/" className="text-2xl font-bold inline-block mb-3">
+              <span className="bg-linear-to-r from-accent-blue to-accent-blue-dark bg-clip-text text-transparent">
+                Yusuf
+              </span>
+              <span className="text-accent-blue">.</span>
+            </Link>
+            <p className="text-text-secondary text-sm">
+              CS Student & Aspiring Web Designer
+            </p>
+          </div>
+
+          {/* Quick Links */}
+          <div>
+            <h4 className="text-text-primary font-semibold mb-3">Quick Links</h4>
+            <div className="flex flex-col gap-2">
+              {['Home', 'About', 'Projects', 'Contact'].map((item) => (
+                <Link
+                  key={item}
+                  to={item === 'Home' ? '/' : `/${item.toLowerCase()}`}
+                  className="text-text-secondary hover:text-accent-blue 
+                    hover:translate-x-1 transition-all duration-300 text-sm"
+                >
+                  {item}
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* Contact */}
+          <div>
+            <h4 className="text-text-primary font-semibold mb-3">Contact</h4>
+            <div className="flex flex-col gap-2 text-sm">
+              <a 
+                href="mailto:karanjajose003@gmail.com"
+                className="text-text-secondary hover:text-accent-blue transition-colors duration-300"
+              >
+                karanjajose003@gmail.com
+              </a>
+              <a 
+                href="tel:0790392893"
+                className="text-text-secondary hover:text-accent-blue transition-colors duration-300"
+              >
+                0790392893
+              </a>
+              <p className="text-text-secondary">P.O Box 75-10200, Murang'a</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="border-t border-border pt-6 flex flex-col sm:flex-row 
+          justify-between items-center gap-2 text-sm text-text-secondary">
+          <p>&copy; {currentYear} Yusuf. All rights reserved.</p>
+          <div className="flex items-center gap-4">
+            <a href="mailto:karanjajose003@gmail.com" className="hover:text-accent-blue transition-colors">
+              <Mail className="w-4 h-4" />
+            </a>
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="hover:text-accent-blue transition-colors">
+              <ExternalLink className="w-4 h-4" />
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-accent-blue transition-colors">
+              <ExternalLink className="w-4 h-4" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  )
+}
+
+export default Footer
+========== src/components/Navbar.jsx ==========
+import { useState } from 'react'
+import { Link, useLocation } from 'react-router-dom'
+
+function Navbar() {
+  const [isOpen, setIsOpen] = useState(false)
+  const location = useLocation()
+
+  const navLinks = [
+    { path: '/', label: 'Home' },
+    { path: '/about', label: 'About' },
+    { path: '/projects', label: 'Projects' },
+    { path: '/contact', label: 'Contact' },
+  ]
+
+  return (
+    <nav className="fixed top-0 left-0 right-0 bg-bg-primary/95 backdrop-blur-md border-b border-border z-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16">
+          {/* Logo */}
+          <Link to="/" className="text-2xl font-bold">
+            <img 
+             src="./avatar.png" 
+             alt="Yusuf Logo" 
+             className="w-8 h-8 rounded-full inline-block mr-2"
+            />
+            <span className="bg-linear-to-r from-accent-blue to-accent-blue-dark bg-clip-text text-transparent">
+              YUSUF
+            </span>
+            <span className="text-accent-blue">...</span>
+          </Link>
+
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center gap-8">
+            {navLinks.map((link) => (
+              <Link
+                key={link.path}
+                to={link.path}
+                className={`relative text-sm font-medium transition-colors duration-300 py-2
+                  ${location.pathname === link.path 
+                    ? 'text-text-primary' 
+                    : 'text-text-secondary hover:text-text-primary'
+                  }
+                  after:content-[''] after:absolute after:bottom-0 after:left-0 
+                  after:w-0 after:h-0.5 after:bg-accent-blue after:transition-all after:duration-300
+                  hover:after:w-full
+                  ${location.pathname === link.path ? 'after:w-full' : ''}
+                `}
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button 
+            onClick={() => setIsOpen(!isOpen)}
+            className="md:hidden relative w-6 h-5 focus:outline-none"
+            aria-label="Toggle menu"
+          >
+            <span className={`block absolute h-0.5 w-6 bg-text-primary transform transition duration-300 ease-in-out
+              ${isOpen ? 'rotate-45 top-2' : 'top-0'}`} 
+            />
+            <span className={`block absolute h-0.5 w-6 bg-text-primary top-2 transition duration-300 ease-in-out
+              ${isOpen ? 'opacity-0' : 'opacity-100'}`} 
+            />
+            <span className={`block absolute h-0.5 w-6 bg-text-primary transform transition duration-300 ease-in-out
+              ${isOpen ? '-rotate-45 top-2' : 'top-4'}`} 
+            />
+          </button>
+        </div>
+
+        {/* Mobile Navigation */}
+        <div className={`md:hidden transition-all duration-300 ease-in-out overflow-hidden
+          ${isOpen ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'}`}
+        >
+          <div className="flex flex-col gap-2 py-4 border-t border-border">
+            {navLinks.map((link) => (
+              <Link
+                key={link.path}
+                to={link.path}
+                onClick={() => setIsOpen(false)}
+                className={`text-lg font-medium px-4 py-2 rounded-lg transition-colors duration-300
+                  ${location.pathname === link.path 
+                    ? 'text-accent-blue bg-accent-blue/10' 
+                    : 'text-text-secondary hover:text-text-primary hover:bg-bg-card'
+                  }
+                `}
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </div>
+    </nav>
+  )
+}
+
+export default Navbar
+========== src/App.jsx ==========
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import Layout from './Layout'
+import Home from './Pages/Home'
+import About from './Pages/About'
+import Projects from './Pages/Projects'
+import Contact from './Pages/Contact'
+import NotFound from './Pages/NotFound'
+
+function App() {
+  return (
+    <Router basename={import.meta.env.PROD ? '/Yusuf-portfolio' : '/'}>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Layout>
+    </Router>
+  )
+}
+
+export default App
+========== src/main.jsx ==========
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import App from './App.jsx'
+import './index.css'
+
+createRoot(document.getElementById('root')).render(
+  <StrictMode>
+    <App />
+  </StrictMode>,
+)
+========== src/Layout.jsx ==========
+import Navbar from './components/Navbar'
+import Footer from './components/Footer'
+
+function Layout({ children }) {
+  return (
+    <div className="min-h-screen relative">
+      {/* Background Image */}
+      <div 
+        className="fixed inset-0 z-0"
+        style={{
+          backgroundImage: 'url("/bgimage.jpg")',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          backgroundAttachment: 'fixed'
+        }}
+      >
+        {/* Dark overlay to maintain readability */}
+        <div className="absolute inset-0 bg-bg-primary/90 backdrop-blur-sm"></div>
+      </div>
+      
+      {/* Content */}
+      <div className="relative z-10">
+        <Navbar />
+        <main className="min-h-screen pt-20">
+          {children}
+        </main>
+        <Footer />
+      </div>
+    </div>
+  )
+}
+
+export default Layout
+========== src/index.css ==========
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-bg-primary: #0a0a0a;
+  --color-bg-secondary: #111111;
+  --color-bg-card: #1a1a1a;
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #b3b3b3;
+  --color-accent-blue: #3b82f6;
+  --color-accent-blue-dark: #2563eb;
+  --color-border: #2a2a2a;
+  --font-space-grotesk: 'Space Grotesk', sans-serif;
+}
+
+/* Rest of your CSS stays the same */
+body {
+  font-family: var(--font-space-grotesk);
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-accent-blue);
+  border-radius: 4px;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-accent-blue) var(--color-bg-secondary);
+}
+========== src/Pages/NotFound.jsx ==========
+import React from 'react'
+
+function NotFound() {
+  return (
+    <div>NotFound</div>
+  )
+}
+
+export default NotFound
+========== src/Pages/Home.jsx ==========
+import { Link } from 'react-router-dom'
+
+function Home() {
+  return (
+    <section className="min-h-screen flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 relative">
+      <div className="max-w-7xl w-full grid md:grid-cols-2 gap-12 items-center">
+        {/* Left Content */}
+        <div className="animate-[fadeInUp_1s_ease] text-center md:text-left">
+          <p className="text-accent-blue text-lg font-medium mb-2">
+            Hello, I'm
+          </p>
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-4 bg-linear-to-r from-accent-blue to-accent-blue-dark bg-clip-text text-transparent leading-tight">
+            Yusuf
+          </h1>
+          <div className="flex flex-wrap gap-3 justify-center md:justify-start items-center mb-6">
+            <p className="text-xl sm:text-2xl text-text-secondary font-light">
+              CS Student
+            </p>
+            <span className="text-accent-blue text-2xl hidden sm:block">|</span>
+            <p className="text-xl sm:text-2xl text-text-secondary font-light">
+              Aspiring Web Designer
+            </p>
+          </div>
+          <p className="text-text-secondary text-base sm:text-lg leading-relaxed mb-8 max-w-lg mx-auto md:mx-0">
+            Third-year Computer Science student at Murang'a University of Technology, 
+            currently on industrial attachment. I craft clean, user-friendly web experiences.
+          </p>
+          <div className="flex flex-wrap gap-4 justify-center md:justify-start">
+            <Link 
+              to="/projects"
+              className="px-6 py-3 bg-linear-to-r from-accent-blue to-accent-blue-dark text-white 
+                rounded-full font-medium hover:shadow-lg hover:shadow-accent-blue/25 
+                hover:-translate-y-0.5 transition-all duration-300"
+            >
+              View My Work
+            </Link>
+            <Link 
+              to="/contact"
+              className="px-6 py-3 border-2 border-accent-blue text-text-primary 
+                rounded-full font-medium hover:bg-accent-blue/10 
+                hover:-translate-y-0.5 transition-all duration-300"
+            >
+              Get In Touch
+            </Link>
+          </div>
+        </div>
+
+        {/* Right Visual */}
+       <Link to="/about" className="animate-[fadeInUp_1s_ease_0.2s_both] flex justify-center">
+  <div className="w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80 
+    bg-bg-card/30 backdrop-blur-md
+    border border-border/50 rounded-2xl flex items-center justify-center
+    shadow-2xl shadow-black/50 hover:border-accent-blue hover:bg-bg-card/40 
+    transition-all duration-300 cursor-pointer hover:scale-105">
+    <div className="text-center">
+      <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full mx-auto mb-4
+        shadow-lg shadow-accent-blue/30 ring-2 ring-accent-blue ring-offset-4 
+        ring-offset-transparent overflow-hidden">
+        <img 
+          src="./yusuf.jpg" 
+          alt="Yusuf" 
+          className="w-full h-full object-cover"
+        />
+      </div>
+      <h3 className="text-xl sm:text-2xl font-semibold text-white mb-1">Yusuf</h3>
+      <p className="text-white/80">Web Designer</p>
+    </div>
+  </div>
+</Link>
+      </div>
+
+      {/* Scroll Indicator */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
+        <div className="w-6 h-10 border-2 border-text-secondary rounded-2xl relative">
+          <div className="w-1 h-2 bg-accent-blue rounded-full absolute top-2 left-1/2 -translate-x-1/2 animate-pulse" />
+        </div>
+        <p className="text-xs text-text-secondary">Scroll down</p>
+      </div>
+
+      <style>{`
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      `}</style>
+    </section>
+  )
+}
+
+export default Home
+========== src/Pages/About.jsx ==========
+// Add these imports at the top of About.jsx
+import { GraduationCap, Briefcase, Code2, Heart, Waves, Skateboard } from 'lucide-react'
+function About() {
+  const skills = ['HTML', 'JavaScript', 'C', 'C++', 'PHP', 'MySQL']
+  
+  const hobbies = [
+    { name: 'Swimming', icon: Waves, description: 'Staying active and refreshed' },
+    { name: 'Skating', icon: Skateboard, description: 'Balance and freedom on wheels' }
+  ]
+
+  return (
+    <section className="min-h-screen py-16 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
+        <h2 className="text-4xl sm:text-5xl font-bold text-center mb-4 
+          bg-linear-to-r from-accent-blue to-accent-blue-dark bg-clip-text text-transparent">
+          About Me
+        </h2>
+        
+        <div className="grid md:grid-cols-2 gap-6 mt-12">
+          {/* Education Card */}
+          <div className="bg-bg-card border border-border rounded-2xl p-6 sm:p-8 
+            hover:border-accent-blue hover:-translate-y-1 transition-all duration-300">
+            <div className="flex items-center gap-3 mb-4">
+              <GraduationCap className="w-8 h-8 text-accent-blue" />
+              <h3 className="text-2xl font-semibold">Education</h3>
+            </div>
+            <div>
+              <h4 className="text-xl font-medium text-text-primary mb-1">Computer Science</h4>
+              <p className="text-accent-blue font-medium mb-1">Murang'a University of Technology</p>
+              <p className="text-text-secondary text-sm mb-1">3rd Year Student</p>
+              <p className="text-text-secondary text-sm">Currently on Industrial Attachment</p>
+            </div>
+          </div>
+
+          {/* Experience Card */}
+          <div className="bg-bg-card border border-border rounded-2xl p-6 sm:p-8 
+            hover:border-accent-blue hover:-translate-y-1 transition-all duration-300">
+            <div className="flex items-center gap-3 mb-4">
+              <Briefcase className="w-8 h-8 text-accent-blue" />
+              <h3 className="text-2xl font-semibold">Experience</h3>
+            </div>
+            <div>
+              <h4 className="text-xl font-medium text-text-primary mb-2">Web Design</h4>
+              <p className="text-text-secondary">
+                Building responsive and user-friendly web interfaces with modern technologies
+              </p>
+            </div>
+          </div>
+
+          {/* Skills Card */}
+          <div className="bg-bg-card border border-border rounded-2xl p-6 sm:p-8 
+            hover:border-accent-blue hover:-translate-y-1 transition-all duration-300">
+            <div className="flex items-center gap-3 mb-4">
+              <Code2 className="w-8 h-8 text-accent-blue" />
+              <h3 className="text-2xl font-semibold">Skills</h3>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {skills.map((skill) => (
+                <span 
+                  key={skill}
+                  className="px-4 py-2 bg-linear-to-r from-accent-blue to-accent-blue-dark 
+                    text-white text-sm font-medium rounded-full
+                    hover:scale-105 hover:shadow-lg hover:shadow-accent-blue/30 
+                    transition-all duration-300 cursor-default"
+                >
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* Hobbies Card */}
+          <div className="bg-bg-card border border-border rounded-2xl p-6 sm:p-8 
+            hover:border-accent-blue hover:-translate-y-1 transition-all duration-300">
+            <div className="flex items-center gap-3 mb-4">
+              <Heart className="w-8 h-8 text-accent-blue" />
+              <h3 className="text-2xl font-semibold">Hobbies</h3>
+            </div>
+            <div className="space-y-3">
+              {hobbies.map((hobby) => (
+                <div 
+                  key={hobby.name}
+                  className="flex items-center gap-4 p-3 bg-bg-secondary rounded-xl 
+                    hover:bg-linear-to-br hover:from-[#1a1a2e] hover:to-[#16213e] 
+                    transition-all duration-300"
+                >
+                  <hobby.icon className="w-8 h-8 text-accent-blue" />
+                  <div>
+                    <h4 className="font-medium text-text-primary">{hobby.name}</h4>
+                    <p className="text-sm text-text-secondary">{hobby.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+export default About
+========== src/Pages/Contact.jsx ==========
+import { useState } from 'react'
+import { Phone, Mail, MapPin, ExternalLink } from 'lucide-react'
+
+function Contact() {
+  const contactInfo = [
+    {
+      icon: Phone,
+      label: 'Phone',
+      value: '0790392893',
+      link: 'tel:0790392893'
+    },
+    {
+      icon: Mail,
+      label: 'Email',
+      value: 'karanjajose003@gmail.com',
+      link: 'mailto:karanjajose003@gmail.com'
+    },
+    {
+      icon: MapPin,
+      label: 'P.O Box',
+      value: "75-10200, Murang'a",
+      link: null
+    }
+  ]
+
+  return (
+    <section className="min-h-screen py-16 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
+        {/* ... title stays same ... */}
+        
+        <div className="grid lg:grid-cols-2 gap-8">
+          <div>
+            <h3 className="text-2xl font-semibold text-text-primary mb-4">
+              Contact Information
+            </h3>
+            <p className="text-text-secondary mb-6">
+              I'm currently available for freelance work and interesting projects.
+            </p>
+
+            <div className="space-y-3 mb-8">
+              {contactInfo.map((info, index) => (
+                <div 
+                  key={index}
+                  className="flex items-center gap-4 p-4 bg-bg-card border border-border 
+                    rounded-xl hover:border-accent-blue hover:translate-x-1 
+                    transition-all duration-300"
+                >
+                  <div className="w-12 h-12 bg-accent-blue/10 rounded-xl flex items-center justify-center">
+                    <info.icon className="w-6 h-6 text-accent-blue" />
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-medium text-text-primary">{info.label}</h4>
+                    {info.link ? (
+                      <a href={info.link} className="text-accent-blue hover:text-blue-400 transition-colors duration-300">
+                        {info.value}
+                      </a>
+                    ) : (
+                      <p className="text-text-secondary">{info.value}</p>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div>
+              <h4 className="text-lg font-semibold text-text-primary mb-3">Find me on</h4>
+              <div className="flex gap-3">
+                <a 
+                  href="https://github.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 px-4 py-2 bg-bg-card border border-border 
+                    rounded-full text-text-secondary hover:border-accent-blue 
+                    hover:text-text-primary hover:-translate-y-0.5 transition-all duration-300"
+                >
+                  <ExternalLink className="w-5 h-5" />
+                  GitHub
+                </a>
+                <a 
+                  href="https://linkedin.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 px-4 py-2 bg-bg-card border border-border 
+                    rounded-full text-text-secondary hover:border-accent-blue 
+                    hover:text-text-primary hover:-translate-y-0.5 transition-all duration-300"
+                >
+                  <ExternalLink className="w-5 h-5" />
+                  LinkedIn
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          {/* ... form section stays same ... */}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+export default Contact
+========== src/Pages/Projects.jsx ==========
+import { Home, ClipboardList } from 'lucide-react'
+
+function Projects() {
+  const projects = [
+    {
+      id: 1,
+      title: 'Prestige Home Properties',
+      category: 'Web Application',
+      icon: Home,
+      // ... rest stays same
+    },
+    {
+      id: 2,
+      title: 'Class Attendance System',
+      category: 'Academic Management Tool',
+      icon: ClipboardList,
+      // ... rest stays same
+    }
+  ]
+
+  return (
+    <section className="min-h-screen py-16 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
+        {/* ... title section stays same ... */}
+        
+        <div className="grid lg:grid-cols-2 gap-8">
+          {projects.map((project) => (
+            <div key={project.id} className="...">
+              <div className="flex justify-between items-start mb-5">
+                <div className="w-14 h-14 bg-accent-blue/10 rounded-xl flex items-center justify-center">
+                  <project.icon className="w-7 h-7 text-accent-blue" />
+                </div>
+                {/* ... rest stays same ... */}
+              </div>
+              {/* ... rest of the card ... */}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+export default Projects

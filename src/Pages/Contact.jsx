@@ -1,7 +1,33 @@
 import { useState } from 'react'
-import { Phone, Mail, MapPin, Github, Linkedin } from 'lucide-react'
+import { Phone, Mail, MapPin, ExternalLink } from 'lucide-react'
 
 function Contact() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  })
+
+  const [status, setStatus] = useState('')
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    })
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    setStatus('success')
+    setFormData({ name: '', email: '', subject: '', message: '' })
+    
+    setTimeout(() => {
+      setStatus('')
+    }, 5000)
+  }
+
   const contactInfo = [
     {
       icon: Phone,
@@ -26,9 +52,16 @@ function Contact() {
   return (
     <section className="min-h-screen py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        {/* ... title stays same ... */}
-        
+        <h2 className="text-4xl sm:text-5xl font-bold text-center mb-4 
+          bg-linear-to-r from-accent-blue to-accent-blue-dark bg-clip-text text-transparent">
+          Get In Touch
+        </h2>
+        <p className="text-center text-text-secondary text-lg mb-12">
+          Have a question or want to work together? Feel free to reach out!
+        </p>
+
         <div className="grid lg:grid-cols-2 gap-8">
+          {/* Contact Information */}
           <div>
             <h3 className="text-2xl font-semibold text-text-primary mb-4">
               Contact Information
@@ -73,7 +106,7 @@ function Contact() {
                     rounded-full text-text-secondary hover:border-accent-blue 
                     hover:text-text-primary hover:-translate-y-0.5 transition-all duration-300"
                 >
-                  <Github className="w-5 h-5" />
+                  <ExternalLink className="w-5 h-5" />
                   GitHub
                 </a>
                 <a 
@@ -84,14 +117,113 @@ function Contact() {
                     rounded-full text-text-secondary hover:border-accent-blue 
                     hover:text-text-primary hover:-translate-y-0.5 transition-all duration-300"
                 >
-                  <Linkedin className="w-5 h-5" />
+                  <ExternalLink className="w-5 h-5" />
                   LinkedIn
                 </a>
               </div>
             </div>
           </div>
-          
-          {/* ... form section stays same ... */}
+
+          {/* Contact Form */}
+          <div className="bg-bg-card border border-border rounded-2xl p-6 sm:p-8">
+            <h3 className="text-2xl font-semibold text-text-primary mb-6">
+              Send Me a Message
+            </h3>
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div>
+                <label htmlFor="name" className="block text-sm font-medium text-text-primary mb-2">
+                  Your Name
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  placeholder="John Doe"
+                  className="w-full px-4 py-3 bg-bg-secondary border border-border 
+                    rounded-xl text-text-primary placeholder-gray-600
+                    focus:outline-none focus:border-accent-blue focus:ring-2 
+                    focus:ring-accent-blue/20 transition-all duration-300"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-text-primary mb-2">
+                  Your Email
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  placeholder="john@example.com"
+                  className="w-full px-4 py-3 bg-bg-secondary border border-border 
+                    rounded-xl text-text-primary placeholder-gray-600
+                    focus:outline-none focus:border-accent-blue focus:ring-2 
+                    focus:ring-accent-blue/20 transition-all duration-300"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="subject" className="block text-sm font-medium text-text-primary mb-2">
+                  Subject
+                </label>
+                <input
+                  type="text"
+                  id="subject"
+                  name="subject"
+                  value={formData.subject}
+                  onChange={handleChange}
+                  required
+                  placeholder="Project Collaboration"
+                  className="w-full px-4 py-3 bg-bg-secondary border border-border 
+                    rounded-xl text-text-primary placeholder-gray-600
+                    focus:outline-none focus:border-accent-blue focus:ring-2 
+                    focus:ring-accent-blue/20 transition-all duration-300"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="message" className="block text-sm font-medium text-text-primary mb-2">
+                  Message
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
+                  placeholder="Tell me about your project or question..."
+                  rows="5"
+                  className="w-full px-4 py-3 bg-bg-secondary border border-border 
+                    rounded-xl text-text-primary placeholder-gray-600 resize-y min-h-[120px]
+                    focus:outline-none focus:border-accent-blue focus:ring-2 
+                    focus:ring-accent-blue/20 transition-all duration-300"
+                />
+              </div>
+
+              <button
+                type="submit"
+                className="w-full py-3 bg-linear-to-r from-accent-blue to-accent-blue-dark 
+                  text-white font-medium rounded-xl
+                  hover:shadow-lg hover:shadow-accent-blue/25 
+                  hover:-translate-y-0.5 transition-all duration-300"
+              >
+                Send Message
+              </button>
+
+              {status === 'success' && (
+                <div className="p-4 bg-emerald-500/10 border border-emerald-500 
+                  rounded-xl text-emerald-500 text-center">
+                  ✅ Message sent successfully! I'll get back to you soon.
+                </div>
+              )}
+            </form>
+          </div>
         </div>
       </div>
     </section>

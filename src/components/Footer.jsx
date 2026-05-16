@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Github, Linkedin, Mail } from 'lucide-react'
+import { Mail, ExternalLink } from 'lucide-react'
 
 function Footer() {
   const currentYear = new Date().getFullYear()
@@ -8,7 +8,6 @@ function Footer() {
     <footer className="bg-bg-secondary border-t border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid md:grid-cols-3 gap-8 mb-8">
-          {/* Brand */}
           <div>
             <Link to="/" className="text-2xl font-bold inline-block mb-3">
               <span className="bg-linear-to-r from-accent-blue to-accent-blue-dark bg-clip-text text-transparent">
@@ -21,7 +20,6 @@ function Footer() {
             </p>
           </div>
 
-          {/* Quick Links */}
           <div>
             <h4 className="text-text-primary font-semibold mb-3">Quick Links</h4>
             <div className="flex flex-col gap-2">
@@ -38,20 +36,13 @@ function Footer() {
             </div>
           </div>
 
-          {/* Contact */}
           <div>
             <h4 className="text-text-primary font-semibold mb-3">Contact</h4>
             <div className="flex flex-col gap-2 text-sm">
-              <a 
-                href="mailto:karanjajose003@gmail.com"
-                className="text-text-secondary hover:text-accent-blue transition-colors duration-300"
-              >
+              <a href="mailto:karanjajose003@gmail.com" className="text-text-secondary hover:text-accent-blue transition-colors duration-300">
                 karanjajose003@gmail.com
               </a>
-              <a 
-                href="tel:0790392893"
-                className="text-text-secondary hover:text-accent-blue transition-colors duration-300"
-              >
+              <a href="tel:0790392893" className="text-text-secondary hover:text-accent-blue transition-colors duration-300">
                 0790392893
               </a>
               <p className="text-text-secondary">P.O Box 75-10200, Murang'a</p>
@@ -59,19 +50,17 @@ function Footer() {
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="border-t border-border pt-6 flex flex-col sm:flex-row 
-          justify-between items-center gap-2 text-sm text-text-secondary">
+        <div className="border-t border-border pt-6 flex flex-col sm:flex-row justify-between items-center gap-2 text-sm text-text-secondary">
           <p>&copy; {currentYear} Yusuf. All rights reserved.</p>
           <div className="flex items-center gap-4">
             <a href="mailto:karanjajose003@gmail.com" className="hover:text-accent-blue transition-colors">
               <Mail className="w-4 h-4" />
             </a>
             <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="hover:text-accent-blue transition-colors">
-              <Github className="w-4 h-4" />
+              <ExternalLink className="w-4 h-4" />
             </a>
             <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-accent-blue transition-colors">
-              <Linkedin className="w-4 h-4" />
+              <ExternalLink className="w-4 h-4" />
             </a>
           </div>
         </div>
