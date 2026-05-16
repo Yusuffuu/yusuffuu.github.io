@@ -1,9 +1,11 @@
+import { GraduationCap, Briefcase, Code2, Heart } from 'lucide-react'
+
 function About() {
   const skills = ['HTML', 'JavaScript', 'C', 'C++', 'PHP', 'MySQL']
   
   const hobbies = [
-    { name: 'Swimming', icon: '🏊‍♂️', description: 'Staying active and refreshed' },
-    { name: 'Skating', icon: '🛼', description: 'Balance and freedom on wheels' }
+    { name: 'Swimming', icon: Waves, description: 'Staying active and refreshed' },
+    { name: 'Skating', icon: Skateboard, description: 'Balance and freedom on wheels' }
   ]
 
   return (
@@ -18,7 +20,10 @@ function About() {
           {/* Education Card */}
           <div className="bg-bg-card border border-border rounded-2xl p-6 sm:p-8 
             hover:border-accent-blue hover:-translate-y-1 transition-all duration-300">
-            <h3 className="text-2xl font-semibold mb-4">📚 Education</h3>
+            <div className="flex items-center gap-3 mb-4">
+              <GraduationCap className="w-8 h-8 text-accent-blue" />
+              <h3 className="text-2xl font-semibold">Education</h3>
+            </div>
             <div>
               <h4 className="text-xl font-medium text-text-primary mb-1">Computer Science</h4>
               <p className="text-accent-blue font-medium mb-1">Murang'a University of Technology</p>
@@ -30,7 +35,10 @@ function About() {
           {/* Experience Card */}
           <div className="bg-bg-card border border-border rounded-2xl p-6 sm:p-8 
             hover:border-accent-blue hover:-translate-y-1 transition-all duration-300">
-            <h3 className="text-2xl font-semibold mb-4">💼 Experience</h3>
+            <div className="flex items-center gap-3 mb-4">
+              <Briefcase className="w-8 h-8 text-accent-blue" />
+              <h3 className="text-2xl font-semibold">Experience</h3>
+            </div>
             <div>
               <h4 className="text-xl font-medium text-text-primary mb-2">Web Design</h4>
               <p className="text-text-secondary">
@@ -42,7 +50,10 @@ function About() {
           {/* Skills Card */}
           <div className="bg-bg-card border border-border rounded-2xl p-6 sm:p-8 
             hover:border-accent-blue hover:-translate-y-1 transition-all duration-300">
-            <h3 className="text-2xl font-semibold mb-4">🛠️ Skills</h3>
+            <div className="flex items-center gap-3 mb-4">
+              <Code2 className="w-8 h-8 text-accent-blue" />
+              <h3 className="text-2xl font-semibold">Skills</h3>
+            </div>
             <div className="flex flex-wrap gap-2">
               {skills.map((skill) => (
                 <span 
@@ -61,7 +72,10 @@ function About() {
           {/* Hobbies Card */}
           <div className="bg-bg-card border border-border rounded-2xl p-6 sm:p-8 
             hover:border-accent-blue hover:-translate-y-1 transition-all duration-300">
-            <h3 className="text-2xl font-semibold mb-4">🎯 Hobbies</h3>
+            <div className="flex items-center gap-3 mb-4">
+              <Heart className="w-8 h-8 text-accent-blue" />
+              <h3 className="text-2xl font-semibold">Hobbies</h3>
+            </div>
             <div className="space-y-3">
               {hobbies.map((hobby) => (
                 <div 
@@ -70,7 +84,7 @@ function About() {
                     hover:bg-linear-to-br hover:from-[#1a1a2e] hover:to-[#16213e] 
                     transition-all duration-300"
                 >
-                  <span className="text-3xl">{hobby.icon}</span>
+                  <hobby.icon className="w-8 h-8 text-accent-blue" />
                   <div>
                     <h4 className="font-medium text-text-primary">{hobby.name}</h4>
                     <p className="text-sm text-text-secondary">{hobby.description}</p>
