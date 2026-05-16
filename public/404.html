@@ -4,16 +4,18 @@
   <meta charset="UTF-8">
   <title>Yusuf - Portfolio</title>
   <script>
-    // Get the current URL path
     var path = window.location.pathname;
-    // Remove the repo name from the path
     var repoName = '/Yusuf-portfolio';
-    var redirectPath = path.replace(repoName, '');
-    // Redirect to index.html with the path as a query parameter
-    window.location.href = repoName + '/?p=' + encodeURIComponent(redirectPath);
+    
+    if (path.startsWith(repoName)) {
+      var redirectPath = path.replace(repoName, '');
+      window.location.href = repoName + '/?p=' + encodeURIComponent(redirectPath);
+    } else {
+      window.location.href = repoName + '/?p=/';
+    }
   </script>
 </head>
 <body>
-  <p>Redirecting...</p>
+  <p>Redirecting to Yusuf's Portfolio...</p>
 </body>
-</html>
+</html>S
