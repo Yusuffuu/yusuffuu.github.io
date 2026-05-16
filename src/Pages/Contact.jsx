@@ -200,7 +200,7 @@ function Contact() {
                   placeholder="Tell me about your project or question..."
                   rows="5"
                   className="w-full px-4 py-3 bg-bg-secondary border border-border 
-                    rounded-xl text-text-primary placeholder-gray-600 resize-y min-h-[120px]
+                    rounded-xl text-text-primary placeholder-gray-600 resize-y min-h-30
                     focus:outline-none focus:border-accent-blue focus:ring-2 
                     focus:ring-accent-blue/20 transition-all duration-300"
                 />
