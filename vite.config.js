@@ -8,5 +8,5 @@ export default defineConfig({
     tailwindcss(),
   ],
   // Only use base for production builds
-  base: process.env.NODE_ENV === 'production' ? '/Yusuf-portfolio/' : '/',
+  base: '/',
 })

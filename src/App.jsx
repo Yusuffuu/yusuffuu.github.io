@@ -8,7 +8,7 @@ import NotFound from './Pages/NotFound'
 
 function App() {
   return (
-    <Router basename={import.meta.env.PROD ? '/Yusuf-portfolio' : '/'}>
+    <Router>
       <Layout>
         <Routes>
           <Route path="/" element={<Home />} />

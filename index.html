@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/Yusuf-portfolio/avatar.svg" />
+    <link rel="icon" type="image/svg+xml" href="/avatar.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Yusuf - Portfolio</title>
     <script>
@@ -11,7 +11,7 @@
         var redirectPath = params.get('p');
         if (redirectPath) {
           // Build full path with basename
-          var newPath = '/Yusuf-portfolio' + redirectPath;
+          var newPath = redirectPath;
           window.history.replaceState(null, null, newPath);
         }
       })();
