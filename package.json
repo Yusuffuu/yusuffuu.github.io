@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "homepage": "https://yusuffuu.github.io/Yusuf-portfolio",
+  "homepage": "https://yusuffuu.github.io/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
