@@ -8,7 +8,7 @@ function Layout({ children }) {
       <div 
         className="fixed inset-0 z-0"
         style={{
-          backgroundImage: 'url("/bgimage.jpg")',
+          backgroundImage: 'url("./bgimage.jpg")',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
