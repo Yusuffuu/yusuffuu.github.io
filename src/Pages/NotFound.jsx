@@ -48,7 +48,7 @@ function NotFound() {
         {/* Action Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link 
-            to="https://yusuffuu.github.io/"
+            to="https://yusuffuu.github.io"
             className="flex items-center justify-center gap-2 px-6 py-3 
               bg-linear-to-r from-accent-blue to-accent-blue-dark 
               text-white rounded-full font-medium 
