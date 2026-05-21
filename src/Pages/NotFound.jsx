@@ -9,7 +9,13 @@ function NotFound() {
         <div className="absolute top-20 left-10 text-8xl font-bold text-border/20 select-none">
           404
         </div>
+        <div className="absolute top-20 right-10 text-8xl font-bold text-border/20 select-none">
+          404
+        </div>
         <div className="absolute bottom-20 right-10 text-8xl font-bold text-border/20 select-none">
+          404
+        </div>
+        <div className="absolute bottom-20 left-10 text-8xl font-bold text-border/20 select-none">
           404
         </div>
       </div>
