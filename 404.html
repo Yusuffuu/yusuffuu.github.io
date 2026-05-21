@@ -7,15 +7,20 @@
     var path = window.location.pathname;
     var repoName = '/Yusuf-portfolio';
     
+    // Build the full correct URL
+    var fullPath = repoName;
     if (path.startsWith(repoName)) {
       var redirectPath = path.replace(repoName, '');
-      window.location.href = repoName + '/?p=' + encodeURIComponent(redirectPath);
-    } else {
-      window.location.href = repoName + '/?p=/';
+      if (redirectPath && redirectPath !== '/') {
+        fullPath = repoName + '/?p=' + encodeURIComponent(redirectPath);
+      }
     }
+    
+    // Redirect to the correct path
+    window.location.replace(fullPath);
   </script>
 </head>
 <body>
-  <p>Redirecting to Yusuf's Portfolio...</p>
+  <p>Redirecting...</p>
 </body>
-</html>S
+</html>

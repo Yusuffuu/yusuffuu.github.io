@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Yusuf - Portfolio</title>
     <script>
-      // Handle GitHub Pages 404 redirect
       (function() {
         var params = new URLSearchParams(window.location.search);
         var redirectPath = params.get('p');
         if (redirectPath) {
-          // Clean the URL and let React Router handle it
-          window.history.replaceState(null, null, redirectPath);
+          // Build full path with basename
+          var newPath = '/Yusuf-portfolio' + redirectPath;
+          window.history.replaceState(null, null, newPath);
         }
       })();
     </script>
