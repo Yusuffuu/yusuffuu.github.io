@@ -48,7 +48,7 @@ function NotFound() {
         {/* Action Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link 
-            to="/"
+            to="https://yusuffuu.github.io/"
             className="flex items-center justify-center gap-2 px-6 py-3 
               bg-linear-to-r from-accent-blue to-accent-blue-dark 
               text-white rounded-full font-medium 
@@ -58,17 +58,6 @@ function NotFound() {
             <Home className="w-5 h-5" />
             Back to Home
           </Link>
-
-          <button 
-            onClick={() => window.history.back()}
-            className="flex items-center justify-center gap-2 px-6 py-3 
-              border-2 border-accent-blue text-text-primary 
-              rounded-full font-medium hover:bg-accent-blue/10 
-              hover:-translate-y-0.5 transition-all duration-300"
-          >
-            <ArrowLeft className="w-5 h-5" />
-            Go Back
-          </button>
         </div>
 
         {/* Quick Links */}
