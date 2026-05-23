@@ -1,4 +1,4 @@
-import { Home, ClipboardList } from 'lucide-react'
+import { Home, Flame } from 'lucide-react'
 
 function Projects() {
   const projects = [
@@ -16,23 +16,27 @@ function Projects() {
       ],
       technologies: ['HTML', 'PHP', 'MySQL', 'CSS', 'JavaScript'],
       icon: Home,
-      dotColor: 'bg-blue-500'
+      dotColor: 'bg-blue-500',
+      link: null
     },
     {
       id: 2,
-      title: 'Class Attendance System',
-      category: 'Academic Management Tool',
-      description: 'A modern digital solution for tracking student attendance throughout the semester. Automatically calculates attendance percentages and determines exam eligibility based on the required 70% attendance threshold.',
+      title: 'GasBiz - Gas Supply System',
+      category: 'E-Commerce Platform',
+      description: 'A comprehensive gas supply management system that connects clients, salespeople, and administrators. Features include product ordering, order tracking, role-based dashboards, and real-time order management.',
       features: [
-        'Digital attendance marking system',
-        'Automatic percentage calculation',
-        'Semester-long attendance tracking',
-        'Exam eligibility determination (70% threshold)',
-        'Student attendance reports'
+        'Multi-role dashboard (Client, Salesperson, Admin)',
+        'Product ordering with dynamic pricing',
+        'Order tracking and status updates',
+        'Zone-based order assignment',
+        'Sales performance analytics',
+        'Responsive design for all devices'
       ],
-      technologies: ['HTML', 'PHP', 'MySQL', 'CSS', 'JavaScript'],
-      icon: ClipboardList,
-      dotColor: 'bg-emerald-500'
+      technologies: ['React', 'Tailwind CSS', 'React Router', 'Lucide Icons', 'LocalStorage'],
+      icon: Flame,
+      dotColor: 'bg-orange-500',
+      link: 'https://yusuffuu.github.io/Gas-Biz/',
+      buttonText: 'View Live Project'
     }
   ]
 
@@ -53,7 +57,7 @@ function Projects() {
               key={project.id}
               className="bg-bg-card border border-border rounded-2xl p-6 sm:p-8 
                 hover:-translate-y-2 transition-all duration-300 hover:border-accent-blue
-                hover:shadow-2xl hover:shadow-black/50"
+                hover:shadow-2xl hover:shadow-black/50 flex flex-col h-full"
             >
               <div className="flex justify-between items-start mb-5">
                 <div className="w-14 h-14 bg-accent-blue/10 rounded-xl flex items-center justify-center">
@@ -86,7 +90,7 @@ function Projects() {
                 </ul>
               </div>
 
-              <div>
+              <div className="mb-5">
                 <h4 className="text-lg font-semibold text-text-primary mb-3">
                   Technologies Used
                 </h4>
@@ -104,6 +108,26 @@ function Projects() {
                   ))}
                 </div>
               </div>
+
+              {/* Live Demo Button - Only shows for projects with a link */}
+              {project.link && (
+                <div className="mt-auto pt-4">
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center w-full px-6 py-3 
+                      bg-linear-to-r from-accent-blue to-accent-blue-dark 
+                      text-white font-medium rounded-xl
+                      hover:shadow-lg hover:shadow-accent-blue/20 
+                      hover:-translate-y-0.5 transition-all duration-300
+                      gap-2"
+                  >
+                    <Flame className="w-5 h-5" />
+                    <span>{project.buttonText}</span>
+                  </a>
+                </div>
+              )}
             </div>
           ))}
         </div>
