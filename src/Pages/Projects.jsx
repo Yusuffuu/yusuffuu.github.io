@@ -1,23 +1,26 @@
-import { Home, Flame } from 'lucide-react'
+import { Home, Flame, Receipt } from 'lucide-react'
 
 function Projects() {
   const projects = [
     {
       id: 1,
-      title: 'Prestige Home Properties',
+      title: '511 HOMES - M-Pesa Receipt Generator',
       category: 'Web Application',
-      description: 'A comprehensive property listing platform that revolutionizes the house-hunting experience. Clients can search for vacant houses online without physical visits, while landlords can showcase their apartments to potential tenants.',
+      description: 'A professional receipt generation system that automatically parses M-Pesa SMS messages and creates branded PDF receipts. Designed for landlords and property managers to streamline rent collection and payment tracking.',
       features: [
-        'Online house search functionality',
-        'Landlord dashboard for property management',
-        'Apartment listing and showcase system',
-        'User-friendly search filters',
-        'Real-time property availability updates'
+        'Automatic SMS parsing for M-Pesa transactions',
+        'PDF receipt generation with company branding',
+        'Receipt history with local storage (IndexedDB)',
+        'House number and payment month tracking',
+        'Automatic rent balance calculation (Monthly Rent: KES 2,000)',
+        'Responsive design with modern glass-morphism UI',
+        'Dark/Light theme support'
       ],
-      technologies: ['HTML', 'PHP', 'MySQL', 'CSS', 'JavaScript'],
-      icon: Home,
-      dotColor: 'bg-blue-500',
-      link: null
+      technologies: ['React', 'Tailwind CSS', 'Vite', 'Dexie.js', '@react-pdf/renderer', 'GitHub Pages'],
+      icon: Receipt,
+      dotColor: 'bg-green-500',
+      link: 'https://yusuffuu.github.io/E_Receipt/',
+      buttonText: 'View Live Project'
     },
     {
       id: 2,
@@ -45,10 +48,10 @@ function Projects() {
       <div className="max-w-7xl mx-auto">
         <h2 className="text-4xl sm:text-5xl font-bold text-center mb-4 
           bg-linear-to-r from-accent-blue to-accent-blue-dark bg-clip-text text-transparent">
-          Academic Projects
+          Featured Projects
         </h2>
         <p className="text-center text-text-secondary text-lg mb-12">
-          Here are some projects I've worked on during my studies
+          Here are some of my recent web development projects
         </p>
 
         <div className="grid lg:grid-cols-2 gap-8">
@@ -109,7 +112,7 @@ function Projects() {
                 </div>
               </div>
 
-              {/* Live Demo Button - Only shows for projects with a link */}
+              {/* Live Demo Button */}
               {project.link && (
                 <div className="mt-auto pt-4">
                   <a
@@ -123,7 +126,7 @@ function Projects() {
                       hover:-translate-y-0.5 transition-all duration-300
                       gap-2"
                   >
-                    <Flame className="w-5 h-5" />
+                    {project.id === 1 ? <Receipt className="w-5 h-5" /> : <Flame className="w-5 h-5" />}
                     <span>{project.buttonText}</span>
                   </a>
                 </div>
