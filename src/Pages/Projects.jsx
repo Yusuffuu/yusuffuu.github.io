@@ -38,7 +38,7 @@ function Projects() {
       technologies: ['React', 'Tailwind CSS', 'React Router', 'Lucide Icons', 'LocalStorage'],
       icon: Flame,
       dotColor: 'bg-orange-500',
-      link: 'https://yusuffuu.github.io/Gas-Biz/',
+      link: 'https://gasbiz.fantomgroupltd.com/#/',
       buttonText: 'View Live Project'
     }
   ]
