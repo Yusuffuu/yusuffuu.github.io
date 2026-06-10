@@ -4,7 +4,7 @@ import { GraduationCap, Briefcase, Code2, Heart } from 'lucide-react'
 function About() {
   const [selectedSkill, setSelectedSkill] = useState(null)
   
-  const skills = ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'React', 'C', 'C++', 'PHP', 'MySQL', 'Tailwind CSS']
+  const skills = ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'React', 'Node.js', 'C', 'C++', 'PHP', 'MySQL', 'Tailwind CSS']
   
   const codeExamples = {
     'HTML': `<!DOCTYPE html>
@@ -74,6 +74,20 @@ function Greeting() {
 }
 
 export default Greeting;`,
+
+  'Node.js': `// Node.js
+// Using CommonJS
+const http = require('http');
+
+const server = http.createServer((req, res) => {
+    res.writeHead(200, { 'Content-Type': 'text/plain' });
+    res.end('Hello, my name is Yusuf');
+});
+
+server.listen(3000, () => {
+    console.log('Server running on port 3000');
+});`,
+
     
     'C': `#include <stdio.h>
 
@@ -221,6 +235,7 @@ CALL SayHello();`,
                        selectedSkill === 'JavaScript' ? 'example.js' : 
                        selectedSkill === 'TypeScript' ? 'example.ts' :
                        selectedSkill === 'React' ? 'Greeting.jsx' :
+                       selectedSkill === 'Node.js' ? 'server.js' :
                        selectedSkill === 'Tailwind CSS' ? 'index.html' :
                        selectedSkill === 'MySQL' ? 'example.sql' : 
                        selectedSkill === 'PHP' ? 'example.php' :

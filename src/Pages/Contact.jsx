@@ -1,5 +1,14 @@
 import { useState } from 'react'
-import { Phone, Mail, MapPin, ExternalLink } from 'lucide-react'
+import {
+  Phone,
+  Mail,
+  MapPin,
+  ExternalLink,
+  GitBranch,
+  X,
+  Camera,
+  MessageCircle
+} from 'lucide-react'
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -22,7 +31,6 @@ function Contact() {
     e.preventDefault()
     setStatus('success')
     setFormData({ name: '', email: '', subject: '', message: '' })
-    
     setTimeout(() => {
       setStatus('')
     }, 5000)
@@ -49,6 +57,21 @@ function Contact() {
     }
   ]
 
+  // Social links – icons will fall back to ExternalLink if the imported icon is undefined
+  const socialLinks = [
+    { icon: GitBranch, label: 'GitHub', link: 'https://github.com/Yusuffuu' },
+    { icon: ExternalLink, label: 'LinkedIn', link: 'https://www.linkedin.com/in/joseph-karanja-92a3862a9' },
+    { icon: Camera, label: 'Instagram', link: 'https://www.instagram.com/it.s_j.o.s.e' },
+    { icon: X, label: 'X (Twitter)', link: 'https://x.com/y_u_s_u_f_u' },
+    { icon: MessageCircle, label: 'WhatsApp', link: 'https://wa.me/qr/REYXZ45FZTFSA1' }
+  ]
+
+  // Helper to safely render icon
+  const renderIcon = (Icon, className) => {
+    const SafeIcon = Icon || ExternalLink
+    return <SafeIcon className={className} />
+  }
+
   return (
     <section className="min-h-screen py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
@@ -61,7 +84,7 @@ function Contact() {
         </p>
 
         <div className="grid lg:grid-cols-2 gap-8">
-          {/* Contact Information */}
+          {/* Left column: Contact Information & Social Links */}
           <div>
             <h3 className="text-2xl font-semibold text-text-primary mb-4">
               Contact Information
@@ -79,7 +102,7 @@ function Contact() {
                     transition-all duration-300"
                 >
                   <div className="w-12 h-12 bg-accent-blue/10 rounded-xl flex items-center justify-center">
-                    <info.icon className="w-6 h-6 text-accent-blue" />
+                    {renderIcon(info.icon, "w-6 h-6 text-accent-blue")}
                   </div>
                   <div>
                     <h4 className="text-sm font-medium text-text-primary">{info.label}</h4>
@@ -95,36 +118,29 @@ function Contact() {
               ))}
             </div>
 
+            {/* Social Links Section */}
             <div>
-              <h4 className="text-lg font-semibold text-text-primary mb-3">Find me on</h4>
-              <div className="flex gap-3">
-                <a 
-                  href="https://github.com" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-4 py-2 bg-bg-card border border-border 
-                    rounded-full text-text-secondary hover:border-accent-blue 
-                    hover:text-text-primary hover:-translate-y-0.5 transition-all duration-300"
-                >
-                  <ExternalLink className="w-5 h-5" />
-                  GitHub
-                </a>
-                <a 
-                  href="https://linkedin.com" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-4 py-2 bg-bg-card border border-border 
-                    rounded-full text-text-secondary hover:border-accent-blue 
-                    hover:text-text-primary hover:-translate-y-0.5 transition-all duration-300"
-                >
-                  <ExternalLink className="w-5 h-5" />
-                  LinkedIn
-                </a>
+              <h4 className="text-lg font-semibold text-text-primary mb-3">Connect with me</h4>
+              <div className="flex flex-wrap gap-3">
+                {socialLinks.map((social, index) => (
+                  <a
+                    key={index}
+                    href={social.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-4 py-2 bg-bg-card border border-border 
+                      rounded-full text-text-secondary hover:border-accent-blue 
+                      hover:text-text-primary hover:-translate-y-0.5 transition-all duration-300"
+                  >
+                    {renderIcon(social.icon, "w-5 h-5")}
+                    <span className="text-sm">{social.label}</span>
+                  </a>
+                ))}
               </div>
             </div>
           </div>
 
-          {/* Contact Form */}
+          {/* Right column: Contact Form */}
           <div className="bg-bg-card border border-border rounded-2xl p-6 sm:p-8">
             <h3 className="text-2xl font-semibold text-text-primary mb-6">
               Send Me a Message

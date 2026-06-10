@@ -24,7 +24,7 @@ function Navbar() {
              className="w-8 h-8 rounded-full inline-block mr-2"
             />
             <span className="bg-linear-to-r from-accent-blue to-accent-blue-dark bg-clip-text text-transparent">
-              YUSUF
+              J.KARANJA
             </span>
             <span className="text-accent-blue">...</span>
           </Link>

@@ -10,7 +10,7 @@ function Home() {
             Hello, I'm
           </p>
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-4 bg-linear-to-r from-accent-blue to-accent-blue-dark bg-clip-text text-transparent leading-tight">
-            Yusuf
+            Joseph Karanja
           </h1>
           <div className="flex flex-wrap gap-3 justify-center md:justify-start items-center mb-6">
             <p className="text-xl sm:text-2xl text-text-secondary font-light">
@@ -62,7 +62,7 @@ function Home() {
           className="w-full h-full object-cover"
         />
       </div>
-      <h3 className="text-xl sm:text-2xl font-semibold text-white mb-1">Yusuf</h3>
+      <h3 className="text-xl sm:text-2xl font-semibold text-white mb-1">J.Karanja</h3>
       <p className="text-white/80">Web Designer</p>
     </div>
   </div>

@@ -11,7 +11,7 @@ function Footer() {
           <div>
             <Link to="/" className="text-2xl font-bold inline-block mb-3">
               <span className="bg-linear-to-r from-accent-blue to-accent-blue-dark bg-clip-text text-transparent">
-                Yusuf
+                Joseph Karanja
               </span>
               <span className="text-accent-blue">.</span>
             </Link>
@@ -51,7 +51,7 @@ function Footer() {
         </div>
 
         <div className="border-t border-border pt-6 flex flex-col sm:flex-row justify-between items-center gap-2 text-sm text-text-secondary">
-          <p>&copy; {currentYear} Yusuf. All rights reserved.</p>
+          <p>&copy; {currentYear} Karanja. All rights reserved.</p>
           <div className="flex items-center gap-4">
             <a href="mailto:karanjajose003@gmail.com" className="hover:text-accent-blue transition-colors">
               <Mail className="w-4 h-4" />
