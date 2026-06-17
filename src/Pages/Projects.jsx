@@ -19,7 +19,7 @@ function Projects() {
       technologies: ['React', 'Tailwind CSS', 'Vite', 'Dexie.js', '@react-pdf/renderer', 'GitHub Pages'],
       icon: Receipt,
       dotColor: 'bg-green-500',
-      link: 'https://yusuffuu.github.io/E_Receipt/',
+      link: 'https://511-homes.vercel.app/',
       buttonText: 'View Live Project'
     },
     {
