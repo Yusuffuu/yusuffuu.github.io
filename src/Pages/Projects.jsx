@@ -1,4 +1,4 @@
-import { Home, Flame, Receipt } from 'lucide-react'
+import { Home, Flame, Receipt, Building2, Shield, HomeIcon } from 'lucide-react'
 
 function Projects() {
   const projects = [
@@ -39,6 +39,27 @@ function Projects() {
       icon: Flame,
       dotColor: 'bg-orange-500',
       link: 'https://gasbiz.fantomgroupltd.com/#/',
+      buttonText: 'View Live Project'
+    },
+    {
+      id: 3,
+      title: 'Fantom Group - Corporate Website',
+      category: 'Brand & Corporate',
+      description: 'A modern corporate website for Fantom Group, a diversified Kenyan company with three business pillars: Fantom Capital (digital lending), Fantom Estates (property management), and Fantom Insure (insurance solutions). The site serves as a unified digital presence for the group.',
+      features: [
+        'Three service pillars with dedicated detail pages',
+        'CBK-licensed digital credit provider showcase',
+        'Professional property management services',
+        'Insurance solutions for businesses and property owners',
+        'Fully responsive design with brand color theme',
+        'Animated hero section using Framer Motion',
+        'Contact form with Google Maps integration',
+        'Service cards with hover effects and CTAs'
+      ],
+      technologies: ['React', 'Tailwind CSS', 'Framer Motion', 'React Router', 'Lucide Icons', 'Vite'],
+      icon: Building2,
+      dotColor: 'bg-blue-500',
+      link: 'https://yusuffuu.github.io/Fantom-group/',
       buttonText: 'View Live Project'
     }
   ]
@@ -126,7 +147,9 @@ function Projects() {
                       hover:-translate-y-0.5 transition-all duration-300
                       gap-2"
                   >
-                    {project.id === 1 ? <Receipt className="w-5 h-5" /> : <Flame className="w-5 h-5" />}
+                    {project.id === 1 && <Receipt className="w-5 h-5" />}
+                    {project.id === 2 && <Flame className="w-5 h-5" />}
+                    {project.id === 3 && <Building2 className="w-5 h-5" />}
                     <span>{project.buttonText}</span>
                   </a>
                 </div>
