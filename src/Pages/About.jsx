@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { GraduationCap, Briefcase, Code2, Heart } from 'lucide-react'
+import { GraduationCap, Briefcase, Code2, Heart, Sparkles } from 'lucide-react'
 
 function About() {
   const [selectedSkill, setSelectedSkill] = useState(null)
@@ -141,8 +141,10 @@ CALL SayHello();`,
   }
   
   const hobbies = [
-    { name: 'Swimming', icon: Heart, description: 'Staying active and refreshed' },
-    { name: 'Skating', icon: Heart, description: 'Balance and freedom on wheels' }
+    { name: 'Swimming', icon: Heart, description: 'Staying active and refreshed', gif: './Swimming.gif' },
+    { name: 'Skating', icon: Heart, description: 'Balance and freedom on wheels', gif: './Skating.gif' },
+    { name: 'Rubik\'s Cube', icon: Heart, description: 'Problem-solving and patience', gif: './RubiksCube.gif' },
+    { name: 'Hiking', icon: Heart, description: 'Exploring nature and staying fit', gif: './Hiking.gif' }
   ]
 
   return (
@@ -255,24 +257,33 @@ CALL SayHello();`,
           <div className="bg-bg-card border border-border rounded-2xl p-6 sm:p-8 
             hover:border-accent-blue hover:-translate-y-1 transition-all duration-300">
             <div className="flex items-center gap-3 mb-4">
-              <Heart className="w-8 h-8 text-accent-blue" />
+              <Sparkles className="w-8 h-8 text-accent-blue" />
               <h3 className="text-2xl font-semibold">Hobbies</h3>
             </div>
-            <div className="space-y-3">
+           <div className="space-y-3">
               {hobbies.map((hobby) => (
-                <div 
+               <div 
                   key={hobby.name}
                   className="flex items-center gap-4 p-3 bg-bg-secondary rounded-xl 
-                    hover:bg-linear-to-br hover:from-[#1a1a2e] hover:to-[#16213e] 
-                    transition-all duration-300"
+                  hover:bg-linear-to-br hover:from-[#1a1a2e] hover:to-[#16213e] 
+                  transition-all duration-300"
                 >
+                 {/* Show GIF for skating, icon for swimming */}
+                  {hobby.gif ? (
+                  <img 
+                    src={hobby.gif} 
+                    alt={hobby.name}
+                    className="w-12 h-12 rounded-lg object-cover"
+                  />
+                  ) : (
                   <hobby.icon className="w-8 h-8 text-accent-blue" />
+                    )}
                   <div>
                     <h4 className="font-medium text-text-primary">{hobby.name}</h4>
                     <p className="text-sm text-text-secondary">{hobby.description}</p>
                   </div>
                 </div>
-              ))}
+                ))}
             </div>
           </div>
         </div>
