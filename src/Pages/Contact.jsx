@@ -1,14 +1,5 @@
 import { useState } from 'react'
-import {
-  Phone,
-  Mail,
-  MapPin,
-  ExternalLink,
-  GitBranch,
-  X,
-  Camera,
-  MessageCircle
-} from 'lucide-react'
+import { Phone, Mail, MapPin, ExternalLink, GitBranch, X, Camera, MessageCircle, MessageCircleDashed } from 'lucide-react'
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -41,32 +32,34 @@ function Contact() {
       icon: Phone,
       label: 'Phone',
       value: '0790392893',
-      link: 'tel:0790392893'
+      link: 'tel:0790392893',
+      action: 'Call now'
     },
     {
       icon: Mail,
       label: 'Email',
       value: 'karanjajose003@gmail.com',
-      link: 'mailto:karanjajose003@gmail.com'
+      link: 'mailto:karanjajose003@gmail.com',
+      action: 'Send email'
     },
     {
       icon: MapPin,
       label: 'P.O Box',
       value: "75-10200, Murang'a",
-      link: null
+      link: null,
+      action: null
     }
   ]
 
-  // Social links – icons will fall back to ExternalLink if the imported icon is undefined
   const socialLinks = [
     { icon: GitBranch, label: 'GitHub', link: 'https://github.com/Yusuffuu' },
     { icon: ExternalLink, label: 'LinkedIn', link: 'https://www.linkedin.com/in/joseph-karanja-92a3862a9' },
     { icon: Camera, label: 'Instagram', link: 'https://www.instagram.com/it.s_j.o.s.e' },
     { icon: X, label: 'X (Twitter)', link: 'https://x.com/y_u_s_u_f_u' },
-    { icon: MessageCircle, label: 'WhatsApp', link: 'https://wa.me/qr/REYXZ45FZTFSA1' }
+    { icon: MessageCircle, label: 'WhatsApp', link: 'https://wa.me/qr/REYXZ45FZTFSA1' },
+    { icon: MessageCircleDashed, label: 'Facebook', link: 'https://www.facebook.com/share/1JeE8V3Rgj/' }
   ]
 
-  // Helper to safely render icon
   const renderIcon = (Icon, className) => {
     const SafeIcon = Icon || ExternalLink
     return <SafeIcon className={className} />
@@ -95,25 +88,41 @@ function Contact() {
 
             <div className="space-y-3 mb-8">
               {contactInfo.map((info, index) => (
-                <div 
-                  key={index}
-                  className="flex items-center gap-4 p-4 bg-bg-card border border-border 
-                    rounded-xl hover:border-accent-blue hover:translate-x-1 
-                    transition-all duration-300"
-                >
-                  <div className="w-12 h-12 bg-accent-blue/10 rounded-xl flex items-center justify-center">
-                    {renderIcon(info.icon, "w-6 h-6 text-accent-blue")}
-                  </div>
-                  <div>
-                    <h4 className="text-sm font-medium text-text-primary">{info.label}</h4>
-                    {info.link ? (
-                      <a href={info.link} className="text-accent-blue hover:text-blue-400 transition-colors duration-300">
-                        {info.value}
-                      </a>
-                    ) : (
-                      <p className="text-text-secondary">{info.value}</p>
-                    )}
-                  </div>
+                <div key={index}>
+                  {info.link ? (
+                    <a
+                      href={info.link}
+                      className="flex items-center gap-4 p-4 bg-bg-card border border-border 
+                        rounded-xl hover:border-accent-blue hover:translate-x-1 
+                        transition-all duration-300 group cursor-pointer"
+                    >
+                      <div className="w-12 h-12 bg-accent-blue/10 rounded-xl flex items-center justify-center
+                        group-hover:bg-accent-blue/20 transition-colors">
+                        {renderIcon(info.icon, "w-6 h-6 text-accent-blue")}
+                      </div>
+                      <div className="flex-1">
+                        <h4 className="text-sm font-medium text-text-primary">{info.label}</h4>
+                        <p className="text-accent-blue group-hover:text-blue-400 transition-colors">
+                          {info.value}
+                        </p>
+                      </div>
+                      <span className="text-xs text-accent-blue opacity-0 group-hover:opacity-100 transition-opacity">
+                        {info.action} →
+                      </span>
+                    </a>
+                  ) : (
+                    <div className="flex items-center gap-4 p-4 bg-bg-card border border-border 
+                      rounded-xl hover:border-accent-blue hover:translate-x-1 
+                      transition-all duration-300">
+                      <div className="w-12 h-12 bg-accent-blue/10 rounded-xl flex items-center justify-center">
+                        {renderIcon(info.icon, "w-6 h-6 text-accent-blue")}
+                      </div>
+                      <div>
+                        <h4 className="text-sm font-medium text-text-primary">{info.label}</h4>
+                        <p className="text-text-secondary">{info.value}</p>
+                      </div>
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
