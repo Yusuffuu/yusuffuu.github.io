@@ -1,15 +1,21 @@
-import { useState } from 'react'
-import { Phone, Mail, MapPin, ExternalLink, GitBranch, X, Camera, MessageCircle, MessageCircleDashed } from 'lucide-react'
+import { useState, useRef } from 'react'
+import { Phone, Mail, MapPin, ExternalLink, GitBranch, X, Camera, MessageCircle, MessageCircleDashed, Send, Loader } from 'lucide-react'
+import emailjs from '@emailjs/browser'
 
 function Contact() {
+  const form = useRef()
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     subject: '',
     message: ''
   })
+  const [status, setStatus] = useState('') // '', 'sending', 'success', 'error'
 
-  const [status, setStatus] = useState('')
+  // 🔑 REPLACE THESE with your actual EmailJS IDs
+  const EMAILJS_SERVICE_ID = 'service_29a4o6q'
+  const EMAILJS_TEMPLATE_ID = 'template_yknm9ka'
+  const EMAILJS_PUBLIC_KEY = 'G7J3t4iSHKjyiB5UA'
 
   const handleChange = (e) => {
     setFormData({
@@ -20,11 +26,26 @@ function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    setStatus('success')
-    setFormData({ name: '', email: '', subject: '', message: '' })
-    setTimeout(() => {
-      setStatus('')
-    }, 5000)
+    setStatus('sending')
+
+    const templateParams = {
+      from_name: formData.name,
+      from_email: formData.email,
+      subject: formData.subject,
+      message: formData.message,
+    }
+
+    emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams, EMAILJS_PUBLIC_KEY)
+      .then(() => {
+        setStatus('success')
+        setFormData({ name: '', email: '', subject: '', message: '' })
+        setTimeout(() => setStatus(''), 5000)
+      })
+      .catch((error) => {
+        console.error('EmailJS Error:', error)
+        setStatus('error')
+        setTimeout(() => setStatus(''), 8000)
+      })
   }
 
   const contactInfo = [
@@ -154,7 +175,7 @@ function Contact() {
             <h3 className="text-2xl font-semibold text-text-primary mb-6">
               Send Me a Message
             </h3>
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form ref={form} onSubmit={handleSubmit} className="space-y-4">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-text-primary mb-2">
                   Your Name
@@ -167,10 +188,12 @@ function Contact() {
                   onChange={handleChange}
                   required
                   placeholder="John Doe"
+                  disabled={status === 'sending'}
                   className="w-full px-4 py-3 bg-bg-secondary border border-border 
                     rounded-xl text-text-primary placeholder-gray-600
                     focus:outline-none focus:border-accent-blue focus:ring-2 
-                    focus:ring-accent-blue/20 transition-all duration-300"
+                    focus:ring-accent-blue/20 transition-all duration-300
+                    disabled:opacity-50"
                 />
               </div>
 
@@ -186,10 +209,12 @@ function Contact() {
                   onChange={handleChange}
                   required
                   placeholder="john@example.com"
+                  disabled={status === 'sending'}
                   className="w-full px-4 py-3 bg-bg-secondary border border-border 
                     rounded-xl text-text-primary placeholder-gray-600
                     focus:outline-none focus:border-accent-blue focus:ring-2 
-                    focus:ring-accent-blue/20 transition-all duration-300"
+                    focus:ring-accent-blue/20 transition-all duration-300
+                    disabled:opacity-50"
                 />
               </div>
 
@@ -205,10 +230,12 @@ function Contact() {
                   onChange={handleChange}
                   required
                   placeholder="Project Collaboration"
+                  disabled={status === 'sending'}
                   className="w-full px-4 py-3 bg-bg-secondary border border-border 
                     rounded-xl text-text-primary placeholder-gray-600
                     focus:outline-none focus:border-accent-blue focus:ring-2 
-                    focus:ring-accent-blue/20 transition-all duration-300"
+                    focus:ring-accent-blue/20 transition-all duration-300
+                    disabled:opacity-50"
                 />
               </div>
 
@@ -224,27 +251,51 @@ function Contact() {
                   required
                   placeholder="Tell me about your project or question..."
                   rows="5"
+                  disabled={status === 'sending'}
                   className="w-full px-4 py-3 bg-bg-secondary border border-border 
                     rounded-xl text-text-primary placeholder-gray-600 resize-y min-h-30
                     focus:outline-none focus:border-accent-blue focus:ring-2 
-                    focus:ring-accent-blue/20 transition-all duration-300"
+                    focus:ring-accent-blue/20 transition-all duration-300
+                    disabled:opacity-50"
                 />
               </div>
 
               <button
                 type="submit"
+                disabled={status === 'sending'}
                 className="w-full py-3 bg-linear-to-r from-accent-blue to-accent-blue-dark 
                   text-white font-medium rounded-xl
                   hover:shadow-lg hover:shadow-accent-blue/25 
-                  hover:-translate-y-0.5 transition-all duration-300"
+                  hover:-translate-y-0.5 transition-all duration-300
+                  disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0
+                  flex items-center justify-center gap-2"
               >
-                Send Message
+                {status === 'sending' ? (
+                  <>
+                    <Loader className="w-5 h-5 animate-spin" />
+                    Sending...
+                  </>
+                ) : (
+                  <>
+                    <Send className="w-5 h-5" />
+                    Send Message
+                  </>
+                )}
               </button>
 
+              {/* Success Message */}
               {status === 'success' && (
                 <div className="p-4 bg-emerald-500/10 border border-emerald-500 
-                  rounded-xl text-emerald-500 text-center">
+                  rounded-xl text-emerald-500 text-center animate-[fadeIn_0.3s_ease]">
                   ✅ Message sent successfully! I'll get back to you soon.
+                </div>
+              )}
+
+              {/* Error Message */}
+              {status === 'error' && (
+                <div className="p-4 bg-red-500/10 border border-red-500 
+                  rounded-xl text-red-500 text-center animate-[fadeIn_0.3s_ease]">
+                  ❌ Failed to send. Please try again or email me directly.
                 </div>
               )}
             </form>
