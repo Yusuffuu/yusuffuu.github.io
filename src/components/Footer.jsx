@@ -51,7 +51,15 @@ function Footer() {
         </div>
 
         <div className="border-t border-border pt-6 flex flex-col sm:flex-row justify-between items-center gap-2 text-sm text-text-secondary">
-          <p>&copy; {currentYear} Karanja. All rights reserved.</p>
+          <div className="flex items-center gap-4">
+            <p>&copy; {currentYear} Karanja. All rights reserved.</p>
+            {/* Visitor Counter Badge */}
+            <img 
+              src="https://visitor-badge.laobi.icu/badge?page_id=Yusuffuu.Yusuf-portfolio&theme=dark" 
+              alt="visitor count"
+              className="h-5 opacity-70"
+            />
+          </div>
           <div className="flex items-center gap-4">
             <a href="mailto:karanjajose003@gmail.com" className="hover:text-accent-blue transition-colors">
               <Mail className="w-4 h-4" />
