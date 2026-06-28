@@ -113,7 +113,7 @@ function Contact() {
                   {info.link ? (
                     <a
                       href={info.link}
-                      className="flex items-center gap-4 p-4 bg-bg-card border border-border 
+                      className="flex items-center gap-4 p-4 bg-bg-card/30 backdrop-blur-md border border-border 
                         rounded-xl hover:border-accent-blue hover:translate-x-1 
                         transition-all duration-300 group cursor-pointer"
                     >
@@ -132,7 +132,7 @@ function Contact() {
                       </span>
                     </a>
                   ) : (
-                    <div className="flex items-center gap-4 p-4 bg-bg-card border border-border 
+                    <div className="flex items-center gap-4 p-4 bg-bg-card/30 backdrop-blur-md border border-border 
                       rounded-xl hover:border-accent-blue hover:translate-x-1 
                       transition-all duration-300">
                       <div className="w-12 h-12 bg-accent-blue/10 rounded-xl flex items-center justify-center">
@@ -158,7 +158,7 @@ function Contact() {
                     href={social.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2 bg-bg-card border border-border 
+                    className="inline-flex items-center gap-2 px-4 py-2 bg-bg-card/30 backdrop-blur-md border border-border 
                       rounded-full text-text-secondary hover:border-accent-blue 
                       hover:text-text-primary hover:-translate-y-0.5 transition-all duration-300"
                   >
@@ -171,7 +171,7 @@ function Contact() {
           </div>
 
           {/* Right column: Contact Form */}
-          <div className="bg-bg-card border border-border rounded-2xl p-6 sm:p-8">
+          <div className="bg-bg-card/30 backdrop-blur-md border border-border rounded-2xl p-6 sm:p-8">
             <h3 className="text-2xl font-semibold text-text-primary mb-6">
               Send Me a Message
             </h3>
@@ -189,7 +189,7 @@ function Contact() {
                   required
                   placeholder="John Doe"
                   disabled={status === 'sending'}
-                  className="w-full px-4 py-3 bg-bg-secondary border border-border 
+                  className="w-full px-4 py-3 bg-bg-card/30 backdrop-blur-md border border-border 
                     rounded-xl text-text-primary placeholder-gray-600
                     focus:outline-none focus:border-accent-blue focus:ring-2 
                     focus:ring-accent-blue/20 transition-all duration-300
@@ -210,7 +210,7 @@ function Contact() {
                   required
                   placeholder="john@example.com"
                   disabled={status === 'sending'}
-                  className="w-full px-4 py-3 bg-bg-secondary border border-border 
+                  className="w-full px-4 py-3 bg-bg-card/30 backdrop-blur-md border border-border 
                     rounded-xl text-text-primary placeholder-gray-600
                     focus:outline-none focus:border-accent-blue focus:ring-2 
                     focus:ring-accent-blue/20 transition-all duration-300
@@ -231,7 +231,7 @@ function Contact() {
                   required
                   placeholder="Project Collaboration"
                   disabled={status === 'sending'}
-                  className="w-full px-4 py-3 bg-bg-secondary border border-border 
+                  className="w-full px-4 py-3 bg-bg-card/30 backdrop-blur-md border border-border 
                     rounded-xl text-text-primary placeholder-gray-600
                     focus:outline-none focus:border-accent-blue focus:ring-2 
                     focus:ring-accent-blue/20 transition-all duration-300
@@ -252,7 +252,7 @@ function Contact() {
                   placeholder="Tell me about your project or question..."
                   rows="5"
                   disabled={status === 'sending'}
-                  className="w-full px-4 py-3 bg-bg-secondary border border-border 
+                  className="w-full px-4 py-3 bg-bg-card/30 backdrop-blur-md border border-border 
                     rounded-xl text-text-primary placeholder-gray-600 resize-y min-h-30
                     focus:outline-none focus:border-accent-blue focus:ring-2 
                     focus:ring-accent-blue/20 transition-all duration-300

@@ -157,7 +157,7 @@ CALL SayHello();`,
         
         <div className="grid md:grid-cols-2 gap-6 mt-12">
           {/* Education Card */}
-          <div className="bg-bg-card border border-border rounded-2xl p-6 sm:p-8 
+          <div className="bg-bg-card/30 backdrop-blur-md border border-border rounded-2xl p-6 sm:p-8 
             hover:border-accent-blue hover:-translate-y-1 transition-all duration-300">
             <div className="flex items-center gap-3 mb-4">
               <GraduationCap className="w-8 h-8 text-accent-blue" />
@@ -172,7 +172,7 @@ CALL SayHello();`,
           </div>
 
           {/* Experience Card */}
-          <div className="bg-bg-card border border-border rounded-2xl p-6 sm:p-8 
+          <div className="bg-bg-card/30 backdrop-blur-md border border-border rounded-2xl p-6 sm:p-8 
             hover:border-accent-blue hover:-translate-y-1 transition-all duration-300">
             <div className="flex items-center gap-3 mb-4">
               <Briefcase className="w-8 h-8 text-accent-blue" />
@@ -187,7 +187,7 @@ CALL SayHello();`,
           </div>
 
           {/* Skills Card */}
-          <div className="bg-bg-card border border-border rounded-2xl p-6 sm:p-8 
+          <div className="bg-bg-card/30 backdrop-blur-md border border-border rounded-2xl p-6 sm:p-8 
             hover:border-accent-blue hover:-translate-y-1 transition-all duration-300">
             <div className="flex items-center gap-3 mb-4">
               <Code2 className="w-8 h-8 text-accent-blue" />
@@ -254,7 +254,7 @@ CALL SayHello();`,
           </div>
 
           {/* Hobbies Card */}
-          <div className="bg-bg-card border border-border rounded-2xl p-6 sm:p-8 
+          <div className="bg-bg-card/30 backdrop-blur-md border border-border rounded-2xl p-6 sm:p-8 
             hover:border-accent-blue hover:-translate-y-1 transition-all duration-300">
             <div className="flex items-center gap-3 mb-4">
               <Sparkles className="w-8 h-8 text-accent-blue" />
@@ -264,7 +264,7 @@ CALL SayHello();`,
               {hobbies.map((hobby) => (
                <div 
                   key={hobby.name}
-                  className="flex items-center gap-4 p-3 bg-bg-secondary rounded-xl 
+                  className="flex items-center gap-4 p-3 bg-bg-card/30 backdrop-blur-md rounded-xl 
                   hover:bg-linear-to-br hover:from-[#1a1a2e] hover:to-[#16213e] 
                   transition-all duration-300"
                 >

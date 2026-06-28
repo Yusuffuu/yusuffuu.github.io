@@ -8,7 +8,7 @@ function Layout({ children }) {
       <div 
         className="fixed inset-0 z-0"
         style={{
-          backgroundImage: 'url("./bgimage.jpg")',
+          backgroundImage: 'url("./bgimage.gif")',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
@@ -16,7 +16,7 @@ function Layout({ children }) {
         }}
       >
         {/* Dark overlay to maintain readability */}
-        <div className="absolute inset-0 bg-bg-primary/90 backdrop-blur-sm"></div>
+        <div className="absolute inset-0 bg-bg-primary/50 backdrop-blur-sm"></div>
       </div>
       
       {/* Content */}

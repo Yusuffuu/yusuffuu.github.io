@@ -79,7 +79,7 @@ function Projects() {
           {projects.map((project) => (
             <div 
               key={project.id}
-              className="bg-bg-card border border-border rounded-2xl p-6 sm:p-8 
+              className="bg-bg-card/30 backdrop-blur-md border border-border rounded-2xl p-6 sm:p-8 
                 hover:-translate-y-2 transition-all duration-300 hover:border-accent-blue
                 hover:shadow-2xl hover:shadow-black/50 flex flex-col h-full"
             >

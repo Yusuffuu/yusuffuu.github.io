@@ -21,7 +21,7 @@ function Footer() {
   ]
 
   return (
-    <footer className="bg-bg-secondary border-t border-border">
+    <footer className="bg-bg-card/50 backdrop-blur-md border-t border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           <div>
