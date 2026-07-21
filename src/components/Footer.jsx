@@ -25,7 +25,7 @@ function Footer() {
   const socialLinks = [
     { icon: GitBranch, label: 'GitHub', link: 'https://github.com/Yusuffuu' },
     { icon: ExternalLink, label: 'LinkedIn', link: 'https://www.linkedin.com/in/joseph-karanja-92a3862a9' },
-    { icon: Camera, label: 'Instagram', link: 'https://www.instagram.com/it.s_j.o.s.e' },
+    { icon: Camera, label: 'Instagram', link: 'https://www.instagram.com/it.s_y.u.s.u.f?igsh=dTBnNGk3c2E0dW5j' },
     { icon: X, label: 'X (Twitter)', link: 'https://x.com/y_u_s_u_f_u' },
     { icon: MessageCircle, label: 'WhatsApp', link: 'https://wa.me/qr/REYXZ45FZTFSA1' },
     { icon: MessageCircleDashed, label: 'Facebook', link: 'https://www.facebook.com/share/1JeE8V3Rgj/' }
