@@ -1,15 +1,26 @@
-import { Link } from 'react-router-dom'
-import { Mail, Phone, ExternalLink, GitBranch, X, Camera, MessageCircle, MessageCircleDashed } from 'lucide-react'
-
+import { Mail, ExternalLink, GitBranch, X, Camera, MessageCircle, MessageCircleDashed } from 'lucide-react'
 
 function Footer() {
   const currentYear = new Date().getFullYear()
 
-  // Helper to safely render icon - falls back to ExternalLink
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId)
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
+
   const renderIcon = (Icon, className) => {
     const SafeIcon = Icon || ExternalLink
     return <SafeIcon className={className} />
   }
+
+  const quickLinks = [
+    { label: 'Home', id: 'home' },
+    { label: 'About', id: 'about' },
+    { label: 'Projects', id: 'projects' },
+    { label: 'Contact', id: 'contact' },
+  ]
 
   const socialLinks = [
     { icon: GitBranch, label: 'GitHub', link: 'https://github.com/Yusuffuu' },
@@ -21,37 +32,43 @@ function Footer() {
   ]
 
   return (
-    <footer className="bg-bg-card/50 backdrop-blur-md border-t border-border">
+    <footer className="bg-bg-card/40 backdrop-blur-md border-t border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid md:grid-cols-3 gap-8 mb-8">
+          {/* Brand */}
           <div>
-            <Link to="/" className="text-2xl font-bold inline-block mb-3">
+            <button 
+              onClick={() => scrollToSection('home')} 
+              className="text-2xl font-bold inline-block mb-3"
+            >
               <span className="bg-linear-to-r from-accent-blue to-accent-blue-dark bg-clip-text text-transparent">
                 Joseph Karanja
               </span>
               <span className="text-accent-blue">.</span>
-            </Link>
+            </button>
             <p className="text-text-secondary text-sm">
               CS Student & Aspiring Web Designer
             </p>
           </div>
 
+          {/* Quick Links */}
           <div>
             <h4 className="text-text-primary font-semibold mb-3">Quick Links</h4>
             <div className="flex flex-col gap-2">
-              {['Home', 'About', 'Projects', 'Contact'].map((item) => (
-                <Link
-                  key={item}
-                  to={item === 'Home' ? '/' : `/${item.toLowerCase()}`}
+              {quickLinks.map((link) => (
+                <button
+                  key={link.id}
+                  onClick={() => scrollToSection(link.id)}
                   className="text-text-secondary hover:text-accent-blue 
-                    hover:translate-x-1 transition-all duration-300 text-sm"
+                    hover:translate-x-1 transition-all duration-300 text-sm text-left"
                 >
-                  {item}
-                </Link>
+                  {link.label}
+                </button>
               ))}
             </div>
           </div>
 
+          {/* Connect */}
           <div>
             <h4 className="text-text-primary font-semibold mb-3">Connect</h4>
             <div className="flex flex-col gap-2 text-sm">
@@ -72,10 +89,10 @@ function Footer() {
           </div>
         </div>
 
+        {/* Bottom Bar */}
         <div className="border-t border-border pt-6 flex flex-col sm:flex-row justify-between items-center gap-2 text-sm text-text-secondary">
           <div className="flex items-center gap-4">
             <p>&copy; {currentYear} Karanja. All rights reserved.</p>
-            {/* Visitor Counter Badge */}
             <img 
               src="https://visitor-badge.laobi.icu/badge?page_id=Yusuffuu.Yusuf-portfolio&theme=dark" 
               alt="visitor count"
