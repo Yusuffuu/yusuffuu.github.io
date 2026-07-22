@@ -195,7 +195,7 @@ function SnakeGame({ onClose }) {
 
         {/* Game Board */}
         <div 
-          className="grid mx-auto mb-3 rounded-lg overflow-hidden border border-border touch-none select-none"
+          className="grid mx-auto mb-3 rounded-lg overflow-hidden border border-border touch-none select-none bg-#111111"
           style={{ 
             gridTemplateColumns: `repeat(${gridSize}, 1fr)`,
             width: '100%',
@@ -218,7 +218,7 @@ function SnakeGame({ onClose }) {
                   ${isHead ? 'bg-accent-blue rounded-sm' : ''}
                   ${isSnake && !isHead ? 'bg-accent-blue/60' : ''}
                   ${isFood ? 'bg-red-500 rounded-full' : ''}
-                  ${!isSnake && !isFood ? 'bg-bg-secondary' : ''}
+                  ${!isSnake && !isFood ? 'bg-#111111' : ''}
                 `}
               />
             )
