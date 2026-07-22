@@ -20,7 +20,7 @@ function SnakeGame({ onClose }) {
   const directionRef = useRef(initialDirection)
   const touchStart = useRef({ x: 0, y: 0 })
 
-  const speeds = { easy: 150, medium: 90, hard: 45 }
+  const speeds = { easy: 300, medium: 150, hard: 90 }
 
   const difficultyColors = {
     easy: 'text-green-400',
