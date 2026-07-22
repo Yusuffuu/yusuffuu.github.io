@@ -3,6 +3,7 @@ import Home from './Pages/Home'
 import About from './Pages/About'
 import Projects from './Pages/Projects'
 import Contact from './Pages/Contact'
+import EasterEgg from './components/EasterEgg'
 
 function App() {
   return (
@@ -19,6 +20,9 @@ function App() {
       <div id="contact">
         <Contact />
       </div>
+      
+      {/* Floating Easter Egg */}
+      <EasterEgg />
     </Layout>
   )
 }
