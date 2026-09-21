@@ -166,7 +166,7 @@ CALL SayHello();`,
             <div>
               <h4 className="text-xl font-medium text-text-primary mb-1">Computer Science</h4>
               <p className="text-accent-blue font-medium mb-1">Murang'a University of Technology</p>
-              <p className="text-text-secondary text-sm mb-1">3rd Year Student</p>
+              <p className="text-text-secondary text-sm mb-1">4th Year Student</p>
               <p className="text-text-secondary text-sm">Currently on Industrial Attachment</p>
             </div>
           </div>

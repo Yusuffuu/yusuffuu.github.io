@@ -27,7 +27,7 @@ function Home() {
             </p>
           </div>
           <p className="text-text-secondary text-base sm:text-lg leading-relaxed mb-8 max-w-lg mx-auto md:mx-0">
-            Third-year Computer Science student at Murang'a University of Technology, 
+            Fourth-year Computer Science student at Murang'a University of Technology, 
             currently on industrial attachment. I craft clean, user-friendly web experiences.
           </p>
           <div className="flex flex-wrap gap-4 justify-center md:justify-start">
